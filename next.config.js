@@ -17,3 +17,9 @@ module.exports = withCSS(
     }
   })
 );
+
+exports.default = {
+  env: {
+    SENDGRID_API_KEY: process.env.SENDGRID_API_KEY
+  }
+};
