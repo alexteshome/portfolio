@@ -30,7 +30,7 @@
     position: absolute;
     bottom: 1em;
     top: initial;
-    max-height: 94px;
+    max-height: 44px;
 
     & .et-hero-tab:active span svg {
       display: none;
@@ -50,7 +50,7 @@
     padding: 2em 0em 1em 0em;
     background-color: $dark-shade;
     border-bottom: 2px solid $main-color;
-    max-height: 94px;
+    max-height: 44px;
     z-index: 30;
   }
 
