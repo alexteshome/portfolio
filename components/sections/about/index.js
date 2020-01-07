@@ -4,7 +4,7 @@ export default () => {
   return (
     <div className="slide" id="about">
       <div className="slide-header">
-        <h1>About Me</h1>
+        <h2>About Me</h2>
         <div className="underline" />
       </div>
 

@@ -21,7 +21,7 @@ export default () => {
   return (
     <div className="slide" id="portfolio">
       <div className="slide-header">
-        <h1>My Work</h1>
+        <h2>My Work</h2>
         <div className="underline" />
       </div>
       <h3>Projects that I'm currently working on/have worked on in the past</h3>

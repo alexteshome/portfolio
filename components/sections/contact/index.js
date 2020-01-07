@@ -53,7 +53,7 @@ const Contact = () => {
   return (
     <div className="slide" id="contact">
       <div className="slide-header">
-        <h1>Let's Get In Touch</h1>
+        <h2>Let's Get In Touch</h2>
         <div className="underline" />
       </div>
       <div className="social-links">
