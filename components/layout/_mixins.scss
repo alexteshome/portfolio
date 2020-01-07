@@ -29,6 +29,7 @@
   @if $position == absolute {
     position: absolute;
     bottom: 1em;
+    top: initial;
     & .et-hero-tab:active span svg {
       display: none;
     }
@@ -43,6 +44,7 @@
     //mobile
     position: $position;
     top: 0em;
+    bottom: initial;
     padding: 2em 0em 1em 0em;
     background-color: $dark-shade;
     border-bottom: 2px solid $main-color;
