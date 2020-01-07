@@ -4,7 +4,6 @@ import { Button, TextField, CircularProgress } from "@material-ui/core";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "isomorphic-fetch";
 import "./contact.scss";
-import { SENDGRID_API_KEY } from "../../../config";
 
 const Contact = () => {
   const [name, changeName] = useState("");
@@ -27,7 +26,7 @@ const Contact = () => {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ name, email, message, SENDGRID_API_KEY })
+      body: JSON.stringify({ name, email, message })
     })
       .then(async response => {
         const data = await response.json();
