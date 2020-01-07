@@ -30,6 +30,8 @@
     position: absolute;
     bottom: 1em;
     top: initial;
+    max-height: 94px;
+
     & .et-hero-tab:active span svg {
       display: none;
     }
@@ -48,7 +50,8 @@
     padding: 2em 0em 1em 0em;
     background-color: $dark-shade;
     border-bottom: 2px solid $main-color;
-    z-index: 20;
+    max-height: 94px;
+    z-index: 30;
   }
 
   @for $i from 1 through length($menu-items) {
