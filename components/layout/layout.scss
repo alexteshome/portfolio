@@ -110,6 +110,9 @@ body {
   display: grid;
   z-index: 10;
   color: $dark-shade;
+  .active-section {
+    color: $main-color;
+  }
 
   & .hero-tab:hover {
     color: $main-color;
@@ -131,9 +134,9 @@ body {
   }
 
   &.left {
-    color: $main-color;
+    color: $dark-accent;
     & .hero-tab:hover {
-      color: $dark-accent;
+      color: $main-color;
     }
     @media (min-width: 800px) {
       grid-template-rows: repeat(5, 1fr);
@@ -155,6 +158,16 @@ body {
     }
     @media (max-width: 799px) {
       @include bottomNav(fixed);
+    }
+  }
+  @media screen and (min-width: 800px) {
+    .mobile {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 799px) {
+    .browser {
+      display: none;
     }
   }
 }

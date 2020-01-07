@@ -80,8 +80,7 @@ export default props => {
           }}
           partialVisibility="top"
           offset={{
-            top:
-              typeof window !== "undefined" ? -window.innerHeight + 115 : -200
+            top: typeof window !== "undefined" ? -window.innerHeight + 90 : -200
           }}
         >
           <div className="hero-tabs" id="home">
@@ -101,12 +100,27 @@ export default props => {
               </Link>
               {menuItems.map(item => (
                 <Link
+                  activeClass="active-section"
                   key={item}
-                  className={`hero-tab link-${item}`}
+                  className={`hero-tab link-${item} browser`}
                   to={item}
                   spy={true}
                   smooth="easeInOutQuad"
                   duration={700}
+                >
+                  <span className="tab-container">{icons[item]}</span>
+                </Link>
+              ))}
+              {menuItems.map(item => (
+                <Link
+                  activeClass="active-section"
+                  key={item + "-mobile"}
+                  className={`hero-tab link-${item} mobile`}
+                  to={item}
+                  spy={true}
+                  smooth="easeInOutQuad"
+                  duration={700}
+                  offset={-80}
                 >
                   <span className="tab-container">{icons[item]}</span>
                 </Link>

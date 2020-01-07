@@ -44,8 +44,9 @@
     position: $position;
     top: 0em;
     padding: 2em 0em 1em 0em;
-    background-color: rgba(0, 0, 0, 0);
-    color: $main-color;
+    background-color: $dark-shade;
+    border-bottom: 2px solid $main-color;
+    z-index: 20;
   }
 
   @for $i from 1 through length($menu-items) {
