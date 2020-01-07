@@ -1,0 +1,222 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/functions";
+@import "mixins";
+/* TO DO!!!!!!!!!!!!!: Turn navbar to shrinking and expanding flex box column/row 
+- Make skill table responsive!
+*/
+html {
+  height: 100%;
+}
+
+body {
+  @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+  font-family: "Roboto";
+  margin: 0;
+  background-color: $light-shade;
+  color: $dark-shade;
+  letter-spacing: 0.15rem;
+}
+
+.hero-tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  padding: 0;
+  #title {
+    color: $light-shade;
+  }
+  h1 {
+    font-size: 2em;
+    margin: 0;
+    z-index: 1;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+  }
+  h3 {
+    z-index: 1;
+    font-size: 1em;
+  }
+  &#home {
+    min-height: 100vh;
+
+    & > .content {
+      background: $black-shade;
+      height: 100%;
+      z-index: 1;
+      width: 100%;
+      margin-top: -100vh;
+      box-shadow: 0 4px 0.5px 0px $main-color;
+      h1 {
+        padding-top: 105vh;
+      }
+      @media (min-height: 568px) {
+        @include prefixer(transform, (skew(0deg, -10deg)));
+        * {
+          @include prefixer(transform, (skew(0deg, 10deg) translateY(-10vh)));
+        }
+      }
+
+      color: $main-color;
+
+      h3 {
+        margin-left: 20px;
+        margin-right: 20px;
+        letter-spacing: 0.3rem;
+      }
+    }
+    &:before {
+      content: "";
+      z-index: -10;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+}
+.slide {
+  @extend .hero-tabs;
+  padding: 0;
+  justify-content: initial;
+  width: 100%;
+
+  .slide-header {
+    color: $dark-shade;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    font-size: 1em;
+    padding-bottom: 2em;
+  }
+  .underline {
+    margin-top: 1.5em;
+    border-top: 3px dotted $main-color;
+    width: 50%;
+  }
+  .slide-content {
+    max-width: 80%;
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+.hero-tabs-container {
+  display: grid;
+  z-index: 10;
+  color: $dark-shade;
+
+  & .hero-tab:hover {
+    color: $main-color;
+    font-weight: bold;
+  }
+
+  &.bottom {
+    @include bottomNav();
+    & .hero-tab:hover span svg {
+      display: none;
+    }
+
+    @each $menu-item in $menu-items {
+      & .link-#{$menu-item}:hover span:after {
+        text-transform: uppercase;
+        content: $menu-item;
+      }
+    }
+  }
+
+  &.left {
+    color: $main-color;
+    & .hero-tab:hover {
+      color: $dark-accent;
+    }
+    @media (min-width: 800px) {
+      grid-template-rows: repeat(5, 1fr);
+      position: fixed;
+      left: 2em;
+      @include prefixer(animation, shrinkBottom 0.8s ease 1 normal);
+      @for $i from 1 through length($menu-items) {
+        $menuItem: nth($menu-items, $i);
+        .link-#{$menuItem} {
+          // loops through menu item array to set the active tab slider
+          @include keyframesLeft(expandLeftItems#{$i}, $i - 1);
+          @include prefixer(
+            animation,
+            expandLeftItems#{$i} 0.8s ease 1 normal forwards
+          );
+        }
+      }
+      height: 100%;
+    }
+    @media (max-width: 799px) {
+      @include bottomNav(fixed);
+    }
+  }
+}
+
+.hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+}
+
+@media (min-width: 800px) {
+  .hero-tabs,
+  .slide {
+    h1 {
+      font-size: 3em;
+    }
+    h3 {
+      font-size: 1em;
+    }
+  }
+  .hero-tab {
+    font-size: 1.2em;
+  }
+}
+
+@include keyframes(expandBottom) {
+  from {
+    width: 0;
+    bottom: 0;
+  }
+  to {
+    width: 100%;
+    left: 0;
+  }
+}
+@include keyframes(expandBottomItems) {
+  to {
+    left: 0;
+  }
+}
+
+// shrink bottom navbar when passed the home page
+@include keyframes(shrinkBottom) {
+  0% {
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    left: 0;
+  }
+  23% {
+    grid-template-columns: repeat(5, 1fr);
+    left: 2em;
+  }
+  49% {
+    grid-template-columns: repeat(5, 1fr);
+
+    width: 0%;
+    left: 2em;
+  }
+  50% {
+    grid-template-rows: repeat(5, 1fr);
+  }
+}
+// expand left items after shrinkBottom ^^^

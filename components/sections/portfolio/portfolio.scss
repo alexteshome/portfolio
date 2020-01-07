@@ -1,0 +1,79 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+@import "../../../sass/functions";
+
+#portfolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  padding-top: 5vh;
+  padding-bottom: 10vh;
+  background-color: $light-accent;
+  border-bottom: $border-width solid $main-color;
+  #card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .card-group {
+      flex: 0 1 400px;
+      margin: 1em;
+      .card {
+        background-color: $light-shade;
+        border: 2px solid $main-color;
+        max-width: 400px;
+        height: 200px;
+      }
+
+      .card-content {
+        height: 100%;
+        button {
+          margin: 1em 0.5em;
+        }
+        .card-description {
+          h2 {
+            font-size: 1em;
+          }
+          display: none;
+
+          font-size: 1em;
+          margin-top: -200px;
+          text-align: center;
+          color: $light-accent;
+        }
+        &:hover {
+          background-color: $dark-shade;
+
+          .card-description {
+            display: inherit;
+          }
+          & .card-image {
+            opacity: 0.1;
+          }
+        }
+      }
+      .card-image {
+        height: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+  h3 {
+    margin: 20px 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .outside-buttons {
+    display: none;
+  }
+}
+@media screen and (max-width: 799px) {
+  .inside-buttons {
+    display: none;
+  }
+}

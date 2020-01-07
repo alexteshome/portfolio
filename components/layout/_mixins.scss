@@ -1,0 +1,62 @@
+@mixin keyframesLeft($name, $menuIndex) {
+  @include keyframes(#{$name}) {
+    20% {
+      position: sticky;
+      position: -webkit-sticky;
+    }
+    50% {
+      position: relative;
+      left: -100% * ($menuIndex);
+    }
+    55% {
+      top: -100% * ($menuIndex);
+      left: 0;
+
+      position: relative;
+    }
+
+    100% {
+      position: relative;
+      top: 0;
+    }
+  }
+}
+@mixin bottomNav($position: absolute) {
+  left: 2em;
+
+  grid-template-columns: repeat(5, 1fr);
+  @include prefixer(animation, expandBottom 0.6s ease 1 normal forwards);
+  @if $position == absolute {
+    position: absolute;
+    bottom: 1em;
+    & .et-hero-tab:active span svg {
+      display: none;
+    }
+
+    @each $menu-item in $menu-items {
+      & .link-#{$menu-item}:active span:after {
+        text-transform: uppercase;
+        content: $menu-item;
+      }
+    }
+  } @else {
+    //mobile
+    position: $position;
+    top: 0em;
+    padding: 2em 0em 1em 0em;
+    background-color: rgba(0, 0, 0, 0);
+    color: $main-color;
+  }
+
+  @for $i from 1 through length($menu-items) {
+    $menuItem: nth($menu-items, $i);
+    .link-#{$menuItem} {
+      // loops through menu item array to set the active tab slider
+
+      @include prefixer(
+        animation,
+        expandBottomItems 0.6s ease 1 normal forwards
+      );
+    }
+  }
+}
