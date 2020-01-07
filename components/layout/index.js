@@ -96,7 +96,7 @@ export default props => {
           }}
           partialVisibility="top"
           offset={{
-            top: typeof window !== "undefined" ? -window.innerHeight + 90 : -200
+            top: typeof window !== "undefined" ? -window.innerHeight + 80 : -200
           }}
         >
           <div className="hero-tabs" id="home">
@@ -136,7 +136,7 @@ export default props => {
                   spy={true}
                   smooth="easeInOutQuad"
                   duration={700}
-                  offset={-80}
+                  offset={-75}
                 >
                   <span className="tab-container">{icons[item]}</span>
                 </Link>

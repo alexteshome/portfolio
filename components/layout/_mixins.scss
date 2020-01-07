@@ -47,11 +47,12 @@
     position: $position;
     top: 0em;
     bottom: initial;
-    padding: 2em 0em 1em 0em;
-    background-color: $dark-shade;
+    padding: 1em 0em 1em 0em;
+    background-color: #{$dark-shade};
     border-bottom: 2px solid $main-color;
     max-height: 44px;
-    z-index: 30;
+    color: $light-shade;
+    z-index: 100;
   }
 
   @for $i from 1 through length($menu-items) {
