@@ -52,7 +52,7 @@
     border-bottom: 2px solid $main-color;
     max-height: 44px;
     color: $light-shade;
-    z-index: 100;
+    z-index: 20;
   }
 
   @for $i from 1 through length($menu-items) {

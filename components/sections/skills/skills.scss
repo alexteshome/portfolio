@@ -37,6 +37,8 @@
       position: relative;
       border-radius: 50%;
       color: $dark-accent;
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
 
       @for $i from 1 through length($main-stack) {
         $logo: nth($main-stack, $i);
