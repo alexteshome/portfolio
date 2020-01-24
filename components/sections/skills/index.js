@@ -2,6 +2,11 @@ import { useState } from "react";
 import { Paper, Divider } from "@material-ui/core/";
 import { FaNetworkWired, FaLaptopCode } from "react-icons/fa";
 import "./skills.scss";
+import config from "react-reveal/globals";
+import Fade from "react-reveal/Fade";
+
+config({ ssrFadeout: true });
+
 const mainStack = [
   "javascript",
   "react",
@@ -38,18 +43,22 @@ export default () => {
         <Paper className={`skills-table skills-table-other`} elevation={5}>
           <div className="skills-details">
             <div className="skills-section">
-              <FaLaptopCode className="title-icon" />
-              <h2>Front End</h2>
-              <p>
-                I like to design and showcase my creative vision while
-                optimizing user experience, with the benefit of instant feedback
-              </p>
-              <h3>Languages:</h3>
-              <p>JavaScript, HTML5, CSS3/SASS/SCSS</p>
-              <h3>Frameworks / Libraries / Tools:</h3>
-              <p>
-                React, Next, Gatsby, Redux, Bootstrap, Material-UI, Semantic-UI
-              </p>
+              <Fade bottom>
+                <FaLaptopCode className="title-icon" />
+                <h2>Front End</h2>
+                <p>
+                  I like to design and showcase my creative vision while
+                  optimizing user experience, with the benefit of instant
+                  feedback
+                </p>
+                <h3>Languages:</h3>
+                <p>JavaScript, HTML5, CSS3/SASS/SCSS</p>
+                <h3>Frameworks / Libraries / Tools:</h3>
+                <p>
+                  React, Next, Gatsby, Redux, Bootstrap, Material-UI,
+                  Semantic-UI
+                </p>
+              </Fade>
             </div>
             <Divider
               className="skills-divider-vertical"
@@ -61,41 +70,47 @@ export default () => {
             />
 
             <div className="skills-section">
-              <FaNetworkWired className="title-icon" />
-              <h2>Back End</h2>
-              <p>
-                I enjoy finding new and interesting problems to solve while
-                designing flexible and secure APIs / database models
-              </p>
-              <h3>Languages:</h3>
-              <p>JavaScript, Python, Java, C#, Bash, Perl, [No]SQL</p>
-              <h3>Frameworks / Libraries / Tools:</h3>
-              <p>Express, Django, MySQL, Oracle, PostgreSQL, MSSQL, MongoDB</p>
+              <Fade bottom>
+                <FaNetworkWired className="title-icon" />
+                <h2>Back End</h2>
+                <p>
+                  I enjoy finding new and interesting problems to solve while
+                  designing flexible and secure APIs / database models
+                </p>
+                <h3>Languages:</h3>
+                <p>JavaScript, Python, Java, C#, Bash, Perl, [No]SQL</p>
+                <h3>Frameworks / Libraries / Tools:</h3>
+                <p>
+                  Express, Django, MySQL, Oracle, PostgreSQL, MSSQL, MongoDB
+                </p>
+              </Fade>
             </div>
           </div>
         </Paper>
         <Paper className={`skills-table skills-table-main`} elevation={0}>
           {skills === 0 ? (
-            <div className="skills-main-stack">
-              {mainStack.map(logo => {
-                return (
-                  <div
-                    key={logo}
-                    className="orbit-container"
-                    id={`${logo}-orbit`}
-                  >
-                    <h2>Main Stack</h2>
-                    <div className="orbit" id={`${logo}`}>
-                      <div className="pos">
-                        <div className="skill-logo">
-                          <img src={`/logos/${logo}.svg`} alt={logo} />
+            <Fade left>
+              <div className="skills-main-stack">
+                {mainStack.map(logo => {
+                  return (
+                    <div
+                      key={logo}
+                      className="orbit-container"
+                      id={`${logo}-orbit`}
+                    >
+                      <h2>Main Stack</h2>
+                      <div className="orbit" id={`${logo}`}>
+                        <div className="pos">
+                          <div className="skill-logo">
+                            <img src={`/logos/${logo}.svg`} alt={logo} />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            </Fade>
           ) : (
             <div className="skills-other-tech">
               <h2>Other Technologies</h2>

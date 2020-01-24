@@ -4,6 +4,10 @@ import { Button, TextField, CircularProgress } from "@material-ui/core";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "isomorphic-fetch";
 import "./contact.scss";
+import config from "react-reveal/globals";
+import Fade from "react-reveal/Fade";
+
+config({ ssrFadeout: true });
 
 const Contact = () => {
   const [name, changeName] = useState("");
@@ -52,71 +56,80 @@ const Contact = () => {
   return (
     <div className="slide" id="contact">
       <div className="slide-header">
-        <h2>Let's Get In Touch</h2>
+        <Fade bottom>
+          <h2>Let's Get In Touch</h2>
+        </Fade>
         <div className="underline" />
       </div>
-      <div className="social-links">
-        <button
-          color="inherit"
-          onClick={() =>
-            window.open(
-              "https://www.linkedin.com/in/alex-teshome-74340b111/",
-              "_blank"
-            )
-          }
-        >
-          <FaLinkedin color="#303841" />
-        </button>
-        <button
-          onClick={() =>
-            window.open("https://github.com/alexteshome", "_blank")
-          }
-        >
-          <FaGithub color="#303841" />
-        </button>
-      </div>
-      <h3>
-        If you want to collaborate, have any inquiries, or just want to chat!
-      </h3>
-      <form id="contact-form" onSubmit={handleSubmit}>
-        <TextField
-          type="text"
-          label="Name"
-          required
-          id="name"
-          fullWidth
-          value={name}
-          onChange={e => changeName(e.target.value)}
-        />
-        <TextField
-          type="email"
-          label="Email address"
-          fullWidth
-          required
-          id="email"
-          value={email}
-          onChange={e => changeEmail(e.target.value)}
-        />
-        <TextField
-          rows="8"
-          multiline
-          label="Message"
-          fullWidth
-          required
-          id="message"
-          value={message}
-          onChange={e => changeMessage(e.target.value)}
-        />
-        <Button
-          type="submit"
-          color="primary"
-          variant="contained"
-          disabled={loading}
-          className="contact-button"
-        >
-          {loading ? <CircularProgress size="2em" /> : "Submit"}
-        </Button>
-      </form>
+      <Fade bottom>
+        <div className="social-links">
+          <button
+            color="inherit"
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/in/alex-teshome-74340b111/",
+                "_blank"
+              )
+            }
+          >
+            <FaLinkedin color="#303841" />
+          </button>
+          <button
+            onClick={() =>
+              window.open("https://github.com/alexteshome", "_blank")
+            }
+          >
+            <FaGithub color="#303841" />
+          </button>
+        </div>
+      </Fade>
+      <Fade bottom>
+        <h3>
+          If you want to collaborate, have any inquiries, or just want to chat!
+        </h3>
+      </Fade>
+
+      <Fade bottom>
+        <form id="contact-form" onSubmit={handleSubmit}>
+          <TextField
+            type="text"
+            label="Name"
+            required
+            id="name"
+            fullWidth
+            value={name}
+            onChange={e => changeName(e.target.value)}
+          />
+          <TextField
+            type="email"
+            label="Email address"
+            fullWidth
+            required
+            id="email"
+            value={email}
+            onChange={e => changeEmail(e.target.value)}
+          />
+          <TextField
+            rows="8"
+            multiline
+            label="Message"
+            fullWidth
+            required
+            id="message"
+            value={message}
+            onChange={e => changeMessage(e.target.value)}
+          />
+          <Button
+            type="submit"
+            color="primary"
+            variant="contained"
+            disabled={loading}
+            className="contact-button"
+          >
+            {loading ? <CircularProgress size="2em" /> : "Submit"}
+          </Button>
+        </form>
+      </Fade>
     </div>
   );
 };

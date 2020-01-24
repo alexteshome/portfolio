@@ -54,15 +54,19 @@ const icons = {
 };
 
 export default props => {
-  const [transition, setTranstion] = useState("bottom");
+  const [transition, setTranstion] = useState("bottom bottom-initial");
   const [isHome, setIsHome] = useState(true);
   const { currentSection, menuItems, onVisChange } = props;
+  const [renderType, setRenderType] = useState("mounted");
 
   useEffect(() => {
     const transitionNav = () => {
-      setTranstion(isHome ? "bottom" : "left");
+      if (renderType === "updated")
+        setTranstion(isHome ? "bottom bottom-transition" : "left-transition");
     };
+
     transitionNav(currentSection);
+    setRenderType("updated");
   }, [isHome]);
   return (
     <div>
@@ -72,6 +76,7 @@ export default props => {
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
+
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           key="description"

@@ -1,20 +1,11 @@
 import { useState, useEffect, useRef } from "react";
-import {
-  Link,
-  DirectLink,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller
-} from "react-scroll";
+import { Events } from "react-scroll";
 import VisibilitySensor from "react-visibility-sensor";
 import Layout from "../components/layout";
 import About from "../components/sections/about";
 import Skills from "../components/sections/skills";
 import Portfolio from "../components/sections/portfolio";
 import Contact from "../components/sections/contact";
-import { Container } from "@material-ui/core";
 
 const menuItems = {
   about: About,
