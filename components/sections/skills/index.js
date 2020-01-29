@@ -45,15 +45,15 @@ export default () => {
             <div className="skills-section">
               <Fade bottom>
                 <FaLaptopCode className="title-icon" />
-                <h2>Front End</h2>
+                <h3>Front End</h3>
                 <p>
                   I like to design and showcase my creative vision while
                   optimizing user experience, with the benefit of instant
                   feedback
                 </p>
-                <h3>Languages</h3>
+                <h4>Languages</h4>
                 <p>JavaScript, HTML5, CSS3/SASS/SCSS</p>
-                <h3>Frameworks / Libraries / Tools</h3>
+                <h4>Frameworks / Libraries / Tools</h4>
                 <p>
                   React, Next, Gatsby, Redux, Bootstrap, Material-UI,
                   Semantic-UI
@@ -72,14 +72,14 @@ export default () => {
             <div className="skills-section">
               <Fade bottom>
                 <FaNetworkWired className="title-icon" />
-                <h2>Back End</h2>
+                <h3>Back End</h3>
                 <p>
                   I enjoy finding new and interesting problems to solve while
                   designing flexible and secure APIs / database models
                 </p>
-                <h3>Languages</h3>
+                <h4>Languages</h4>
                 <p>JavaScript, Python, Java, C#, Bash, Perl, [No]SQL</p>
-                <h3>Frameworks / Libraries / Tools</h3>
+                <h4>Frameworks / Libraries / Tools</h4>
                 <p>
                   Express, Django, MySQL, Oracle, PostgreSQL, MSSQL, MongoDB
                 </p>

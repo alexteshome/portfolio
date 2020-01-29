@@ -372,7 +372,7 @@
         .skills-divider-vertical {
           background-color: $dark-shade;
           height: auto;
-
+          margin: 1em 0;
           width: 2px;
         }
         .skills-divider-horizontal {
@@ -388,19 +388,22 @@
           align-items: center;
           flex: 1 0;
           margin: 1em 2em;
-          justify-content: space-around;
         }
         .title-icon {
           font-size: 2em;
           color: $light-accent;
         }
-        h2 {
+        h3 {
+          font-size: 1.4em;
           font-weight: bolder;
           color: $main-color;
+          margin-top: 0.3em;
+          margin-bottom: 0;
         }
-        h3 {
+        h4 {
           font-weight: bolder;
           color: $dark-accent;
+          margin-bottom: 0;
         }
         p {
           font-size: 0.85em;
