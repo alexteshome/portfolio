@@ -139,7 +139,7 @@ body {
 
   &.bottom {
     left: 2em;
-    grid-template-columns: repeat(5);
+    grid-template-columns: repeat(5, 1fr);
     position: absolute;
     bottom: 1em;
     top: initial;
