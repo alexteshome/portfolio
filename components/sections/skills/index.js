@@ -51,9 +51,9 @@ export default () => {
                   optimizing user experience, with the benefit of instant
                   feedback
                 </p>
-                <h3>Languages:</h3>
+                <h3>Languages</h3>
                 <p>JavaScript, HTML5, CSS3/SASS/SCSS</p>
-                <h3>Frameworks / Libraries / Tools:</h3>
+                <h3>Frameworks / Libraries / Tools</h3>
                 <p>
                   React, Next, Gatsby, Redux, Bootstrap, Material-UI,
                   Semantic-UI
@@ -77,9 +77,9 @@ export default () => {
                   I enjoy finding new and interesting problems to solve while
                   designing flexible and secure APIs / database models
                 </p>
-                <h3>Languages:</h3>
+                <h3>Languages</h3>
                 <p>JavaScript, Python, Java, C#, Bash, Perl, [No]SQL</p>
-                <h3>Frameworks / Libraries / Tools:</h3>
+                <h3>Frameworks / Libraries / Tools</h3>
                 <p>
                   Express, Django, MySQL, Oracle, PostgreSQL, MSSQL, MongoDB
                 </p>
@@ -89,28 +89,26 @@ export default () => {
         </Paper>
         <Paper className={`skills-table skills-table-main`} elevation={0}>
           {skills === 0 ? (
-            <Fade left>
-              <div className="skills-main-stack">
-                {mainStack.map(logo => {
-                  return (
-                    <div
-                      key={logo}
-                      className="orbit-container"
-                      id={`${logo}-orbit`}
-                    >
-                      <h2>Main Stack</h2>
-                      <div className="orbit" id={`${logo}`}>
-                        <div className="pos">
-                          <div className="skill-logo">
-                            <img src={`/logos/${logo}.svg`} alt={logo} />
-                          </div>
+            <div className="skills-main-stack">
+              {mainStack.map(logo => {
+                return (
+                  <div
+                    key={logo}
+                    className="orbit-container"
+                    id={`${logo}-orbit`}
+                  >
+                    <h2>Main Stack</h2>
+                    <div className="orbit" id={`${logo}`}>
+                      <div className="pos">
+                        <div className="skill-logo">
+                          <img src={`/logos/${logo}.svg`} alt={logo} />
                         </div>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-            </Fade>
+                  </div>
+                );
+              })}
+            </div>
           ) : (
             <div className="skills-other-tech">
               <h2>Other Technologies</h2>

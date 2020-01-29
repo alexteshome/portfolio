@@ -31,9 +31,7 @@ export default () => {
         <div className="underline" />
       </div>
       <Fade bottom>
-        <h3>
-          Projects that I'm currently working on/have worked on in the past
-        </h3>
+        <p>Projects that I'm currently working on/have worked on in the past</p>
       </Fade>
       <div className="slide-content">
         <div id="card-grid">

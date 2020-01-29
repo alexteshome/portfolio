@@ -6,7 +6,7 @@
 #skills {
   @include prefixer(
     background,
-    linear-gradient(180deg, $light-accent 25%, $black-shade 25%)
+    linear-gradient(180deg, $light-shade 25%, $black-shade 25%)
   );
   border-bottom: $border-width solid $main-color;
   .skills-table {
@@ -14,8 +14,9 @@
     padding: 10px;
 
     background-color: rgba(0, 0, 0, 0);
-    max-width: 720px;
+    max-width: 750px;
     text-align: center;
+    line-height: 1.6;
     &.skills-table-main {
       background-color: rgba(0, 0, 0, 0);
     }
@@ -39,7 +40,9 @@
       color: $dark-accent;
       transform: translate3d(0, 0, 0);
       -webkit-transform: translate3d(0, 0, 0);
-
+      @media screen and (max-width: 499px) {
+        display: none;
+      }
       @for $i from 1 through length($main-stack) {
         $logo: nth($main-stack, $i);
         $orbitAngle: ($i - 1) * 0deg;
@@ -346,8 +349,8 @@
     &.skills-table-other {
       background-color: $black-shade;
       border-radius: 20px;
-      box-shadow: 0 0 0.5px 2px $main-color;
-      height: 600px;
+      box-shadow: 0 0 20px -5px black;
+      height: 100%;
       @media screen and (max-width: 594px) {
         .skills-divider-vertical {
           display: none;
@@ -367,10 +370,10 @@
         height: 100%;
         color: $dark-shade;
         .skills-divider-vertical {
-          background-color: $main-color;
-          margin-top: -10px;
+          background-color: $dark-shade;
+          height: auto;
+
           width: 2px;
-          height: 620px;
         }
         .skills-divider-horizontal {
           background-color: $main-color;
@@ -384,7 +387,7 @@
           flex-direction: column;
           align-items: center;
           flex: 1 0;
-          margin: 0 2em;
+          margin: 1em 2em;
           justify-content: space-around;
         }
         .title-icon {
