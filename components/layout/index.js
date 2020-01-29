@@ -128,7 +128,6 @@ export default props => {
                   spy={true}
                   smooth="easeInOutQuad"
                   duration={700}
-                  offset={item === "about" ? 75 : 0}
                 >
                   <span className="tab-container">{icons[item]}</span>
                 </Link>

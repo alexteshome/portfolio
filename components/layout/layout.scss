@@ -137,14 +137,9 @@ body {
     color: $main-color;
   }
 
-  & .hero-tab:hover {
-    color: $main-color;
-    font-weight: bold;
-  }
-
   &.bottom {
     left: 2em;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5);
     position: absolute;
     bottom: 1em;
     top: initial;
@@ -155,21 +150,43 @@ body {
       left: 0;
       width: 100%;
     }
+
     @media screen and (max-width: 799px) {
+      grid-template-columns: repeat(5, auto);
       left: 0;
       width: 100%;
-    }
-    & .et-hero-tab:active span svg {
-      display: none;
-    }
-
-    @each $menu-item in $menu-items {
-      & .link-#{$menu-item}:active span:after {
-        text-transform: uppercase;
-        content: $menu-item;
+      font-weight: 500;
+      letter-spacing: -1px;
+      & .hero-tab span svg {
+        display: none;
+      }
+      @each $menu-item in $menu-items {
+        & .link-#{$menu-item} span:after {
+          text-transform: uppercase;
+          content: $menu-item;
+        }
       }
     }
     @media screen and (min-width: 800px) {
+      & .hero-tab:hover {
+        color: $main-color;
+        font-weight: bold;
+      }
+
+      & .hero-tab:active span svg {
+        display: none;
+      }
+
+      & .hero-tab:hover span svg {
+        display: none;
+      }
+
+      @each $menu-item in $menu-items {
+        & .link-#{$menu-item}:hover span:after {
+          text-transform: uppercase;
+          content: $menu-item;
+        }
+      }
       &.bottom-transition {
         @include prefixer(animation, expandBottom 0.6s ease 1 normal forwards);
       }
@@ -185,25 +202,15 @@ body {
         }
       }
     }
-
-    & .hero-tab:hover span svg {
-      display: none;
-    }
-
-    @each $menu-item in $menu-items {
-      & .link-#{$menu-item}:hover span:after {
-        text-transform: uppercase;
-        content: $menu-item;
-      }
-    }
   }
 
   &.left-transition {
     color: $dark-accent;
-    & .hero-tab:hover {
-      color: $main-color;
-    }
+
     @media screen and (min-width: 800px) {
+      & .hero-tab:hover {
+        color: $main-color;
+      }
       grid-template-rows: repeat(5, 1fr);
       position: fixed;
       left: 2em;
@@ -223,19 +230,29 @@ body {
     }
     @media screen and (max-width: 799px) {
       left: 2em;
-
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(5, auto);
       position: fixed;
       top: 0;
       bottom: initial;
       padding: 1em 0em 1em 0em;
-      background-color: #{$dark-shade};
+      background-color: #{$black-shade};
       border-bottom: 2px solid $main-color;
       max-height: 44px;
       color: $light-shade;
       z-index: 20;
       width: 100%;
       left: 0;
+      font-size: 1em;
+      letter-spacing: -1px;
+      & .hero-tab span svg {
+        display: none;
+      }
+      @each $menu-item in $menu-items {
+        & .link-#{$menu-item} span:after {
+          text-transform: uppercase;
+          content: $menu-item;
+        }
+      }
     }
   }
   @media screen and (min-width: 800px) {
