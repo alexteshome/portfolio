@@ -9,32 +9,32 @@ html {
   height: 100%;
 }
 @font-face {
-  font-family: "Roboto";
-  src: url("/fonts/Roboto/Roboto-Light.ttf") format("truetype");
+  font-family: "Raleway";
+  src: url("/fonts/Raleway/Raleway-Light.ttf") format("truetype");
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
-  font-family: "Roboto";
-  src: url("/fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  font-family: "Raleway";
+  src: url("/fonts/Raleway/Raleway-Regular.ttf") format("truetype");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "Roboto";
-  src: url("/fonts/Roboto/Roboto-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Roboto";
-  src: url("/fonts/Roboto/Roboto-Bold.ttf") format("truetype");
-  font-weight: 700;
+  font-family: "OpenSans";
+  src: url("/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+  font-weight: 400;
   font-display: swap;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Raleway", sans-serif;
+  }
   margin: 0;
   background-color: $light-shade;
   color: $dark-shade;
@@ -56,7 +56,6 @@ body {
     font-size: 2em;
     margin: 0;
     z-index: 1;
-    letter-spacing: 0.15rem;
     text-transform: uppercase;
   }
   h3 {
@@ -75,6 +74,7 @@ body {
       box-shadow: 0 4px 0.5px 0px $main-color;
       h1 {
         padding-top: 105vh;
+        letter-spacing: 0.05em;
       }
       @media (min-height: 568px) {
         @include prefixer(transform, (skew(0deg, -10deg)));
@@ -88,7 +88,7 @@ body {
       h3 {
         margin-left: 20px;
         margin-right: 20px;
-        letter-spacing: 0.2rem;
+        letter-spacing: 0.15rem;
       }
     }
     &:before {

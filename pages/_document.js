@@ -7,25 +7,19 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="preload"
-            href="/fonts/Roboto/Roboto-Light.ttf"
+            href="/fonts/Raleway/Raleway-Light.ttf"
             as="font"
             crossOrigin=""
           />
           <link
             rel="preload"
-            href="/fonts/Roboto/Roboto-Regular.ttf"
+            href="/fonts/Raleway/Raleway-Regular.ttf"
             as="font"
             crossOrigin=""
           />
           <link
             rel="preload"
-            href="/fonts/Roboto/Roboto-Medium.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/Roboto/Roboto-Bold.ttf"
+            href="/fonts/OpenSans/OpenSans-Regular.ttf"
             as="font"
             crossOrigin=""
           />
