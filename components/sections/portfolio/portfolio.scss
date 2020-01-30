@@ -24,7 +24,8 @@
       max-width: 100%;
       .card {
         background-color: $light-shade;
-        border: 2px solid $main-color;
+        box-shadow: 0 0 2px 1px $dark-shade;
+
         height: 200px;
       }
 
@@ -62,7 +63,7 @@
       }
     }
   }
-  h3 {
+  p {
     margin: 20px 20px;
   }
 }
@@ -75,5 +76,10 @@
 @media screen and (max-width: 799px) {
   .inside-buttons {
     display: none;
+  }
+  @media screen and (max-width: 799px) {
+    svg {
+      color: $main-color;
+    }
   }
 }

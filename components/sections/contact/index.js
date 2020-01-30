@@ -56,12 +56,12 @@ const Contact = () => {
   return (
     <div className="slide" id="contact">
       <div className="slide-header">
-        <Fade bottom>
+        <Fade>
           <h2>Let's Get In Touch</h2>
         </Fade>
         <div className="underline" />
       </div>
-      <Fade bottom>
+      <Fade>
         <div className="social-links">
           <button
             color="inherit"
@@ -72,24 +72,24 @@ const Contact = () => {
               )
             }
           >
-            <FaLinkedin color="#303841" />
+            <FaLinkedin />
           </button>
           <button
             onClick={() =>
               window.open("https://github.com/alexteshome", "_blank")
             }
           >
-            <FaGithub color="#303841" />
+            <FaGithub />
           </button>
         </div>
       </Fade>
-      <Fade bottom>
+      <Fade>
         <h3>
           If you want to collaborate, have any inquiries, or just want to chat!
         </h3>
       </Fade>
 
-      <Fade bottom>
+      <Fade>
         <form id="contact-form" onSubmit={handleSubmit}>
           <TextField
             type="text"

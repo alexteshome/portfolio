@@ -23,6 +23,20 @@
   }
   .social-links {
     display: flex;
+    @media screen and (max-width: 799px) {
+      svg {
+        color: $main-color;
+      }
+    }
+    @media screen and (min-width: 800px) {
+      svg {
+        color: $dark-shade;
+      }
+      > *:hover {
+        background-color: $light-accent;
+      }
+    }
+
     > * {
       background-color: inherit;
       cursor: pointer;
@@ -34,9 +48,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    > *:hover {
-      background-color: $light-accent;
     }
   }
 }
