@@ -14,7 +14,7 @@ const menuItems = {
   contact: Contact,
 };
 
-export default () => {
+const App = () => {
   const [currentSection, setSection] = useState("home");
   useEffect(() => {
     Events.scrollEvent.register("begin", function () {});
@@ -25,10 +25,7 @@ export default () => {
     };
   }, []);
 
-  const onChange = (isVisible: boolean, tab: string) => {
-    /* console.log(
-      `PREVSECTION: ${currentSection}, NEXTSECTION: ${tab}, NEXT-VISIBLE: ${isVisible}, INDEX: ${index}`
-    ); */
+  const onChange = (isVisible: boolean, tab: string): void => {
     if (isVisible) {
       setSection(tab);
     }
@@ -59,3 +56,5 @@ export default () => {
     </Layout>
   );
 };
+
+export default App;

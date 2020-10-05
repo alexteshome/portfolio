@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import "./layout.scss";
 import Head from "next/head";
 import { Link } from "react-scroll";
@@ -14,6 +14,7 @@ import VisibilitySensor from "react-visibility-sensor";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { MY_SEO } from "../../config";
+import { LayoutProps } from "types.dt";
 
 const theme = createMuiTheme({
   palette: {
@@ -53,7 +54,7 @@ const icons = {
   contact: <FaRegEnvelope size={size} />,
 };
 
-export const Layout = (props) => {
+export const Layout: FC<LayoutProps> = (props) => {
   const [transition, setTranstion] = useState("bottom bottom-initial");
   const [isHome, setIsHome] = useState(true);
   const { currentSection, menuItems, onVisChange } = props;
@@ -97,7 +98,7 @@ export const Layout = (props) => {
         <VisibilitySensor
           onChange={(isVisible) => {
             setIsHome(isVisible);
-            return onVisChange(isVisible, "home", 0);
+            return onVisChange(isVisible, "home");
           }}
           partialVisibility="top"
           offset={{

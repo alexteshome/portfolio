@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, FormEvent, useState } from "react";
 import { Button, TextField, CircularProgress } from "@material-ui/core";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "isomorphic-fetch";
@@ -17,7 +17,7 @@ export const Contact: FC = () => {
     changeMessage("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
     fetch("/api/contact", {
@@ -52,12 +52,12 @@ export const Contact: FC = () => {
   return (
     <div className="slide" id="contact">
       <div className="slide-header">
-        <Fade direction="up" triggerOnce>
+        <Fade triggerOnce>
           <h2>Let's Get In Touch</h2>
         </Fade>
         <div className="underline" />
       </div>
-      <Fade direction="up" triggerOnce>
+      <Fade triggerOnce>
         <div className="social-links">
           <button
             color="inherit"
@@ -79,13 +79,13 @@ export const Contact: FC = () => {
           </button>
         </div>
       </Fade>
-      <Fade direction="up" triggerOnce>
+      <Fade triggerOnce>
         <h3>
           If you want to collaborate, have any inquiries, or just want to chat!
         </h3>
       </Fade>
 
-      <Fade direction="up" triggerOnce>
+      <Fade triggerOnce>
         <form id="contact-form" onSubmit={handleSubmit}>
           <TextField
             type="text"
