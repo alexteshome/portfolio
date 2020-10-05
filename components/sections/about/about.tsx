@@ -1,21 +1,18 @@
 import "./about.scss";
-import config from "react-reveal/globals";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 
-config({ ssrFadeout: true });
-
-export default () => {
+export const About = () => {
   return (
     <div className="slide" id="about">
       <div className="slide-header">
-        <Fade bottom>
+        <Fade direction="up" triggerOnce>
           <h2>About Me</h2>
         </Fade>
         <div className="underline" />
       </div>
 
       <div className="slide-content">
-        <Fade bottom>
+        <Fade direction="up" triggerOnce>
           <p>
             I'm a Toronto-based full-stack developer with a passion for
             creative, efficient, and intuitive web design, primarily with the

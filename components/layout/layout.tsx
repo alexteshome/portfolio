@@ -8,7 +8,7 @@ import {
   FaCode,
   FaRegFolder,
   FaRegFolderOpen,
-  FaRegEnvelope
+  FaRegEnvelope,
 } from "react-icons/fa";
 import VisibilitySensor from "react-visibility-sensor";
 import { ThemeProvider } from "@material-ui/styles";
@@ -19,27 +19,27 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: "#5898b1"
+      main: "#5898b1",
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     },
     secondary: {
-      main: "#8C8997"
+      main: "#8C8997",
       // dark: will be calculated from palette.secondary.main,
     },
     info: {
-      main: "#1e1420"
+      main: "#1e1420",
     },
     success: {
-      main: "#44a469"
+      main: "#44a469",
     },
     warning: {
-      main: "#c19431"
+      main: "#c19431",
     },
     error: {
-      main: "#f44336"
-    }
-  }
+      main: "#f44336",
+    },
+  },
 });
 
 const size = "2.5rem";
@@ -50,10 +50,10 @@ const icons = {
   skills: <FaCode size={size} />,
   portfolio: <FaRegFolder size={size} />,
   portfolioOpen: <FaRegFolderOpen size={size} />,
-  contact: <FaRegEnvelope size={size} />
+  contact: <FaRegEnvelope size={size} />,
 };
 
-export default props => {
+export const Layout = (props) => {
   const [transition, setTranstion] = useState("bottom bottom-initial");
   const [isHome, setIsHome] = useState(true);
   const { currentSection, menuItems, onVisChange } = props;
@@ -65,7 +65,7 @@ export default props => {
         setTranstion(isHome ? "bottom bottom-transition" : "left-transition");
     };
 
-    transitionNav(currentSection);
+    transitionNav();
     setRenderType("updated");
   }, [isHome]);
   return (
@@ -95,13 +95,14 @@ export default props => {
       </Head>
       <ThemeProvider theme={theme}>
         <VisibilitySensor
-          onChange={isVisible => {
+          onChange={(isVisible) => {
             setIsHome(isVisible);
             return onVisChange(isVisible, "home", 0);
           }}
           partialVisibility="top"
           offset={{
-            top: typeof window !== "undefined" ? -window.innerHeight + 80 : -200
+            top:
+              typeof window !== "undefined" ? -window.innerHeight + 80 : -200,
           }}
         >
           <div className="hero-tabs" id="home">
@@ -119,7 +120,7 @@ export default props => {
               >
                 <span>{icons.home}</span>
               </Link>
-              {menuItems.map(item => (
+              {menuItems.map((item) => (
                 <Link
                   activeClass="active-section"
                   key={item}
@@ -132,7 +133,7 @@ export default props => {
                   <span className="tab-container">{icons[item]}</span>
                 </Link>
               ))}
-              {menuItems.map(item => (
+              {menuItems.map((item) => (
                 <Link
                   activeClass="active-section"
                   key={item + "-mobile"}

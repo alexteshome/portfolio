@@ -1,41 +1,27 @@
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import "./portfolio.scss";
-import config from "react-reveal/globals";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
+import { FC } from "react";
 
-config({ ssrFadeout: true });
-
-const useStyles = makeStyles({
-  card: {
-    maxWidth: "50%"
-  },
-  media: {
-    height: 140
-  }
-});
-
-export default () => {
-  const classes = useStyles();
+export const Portfolio: FC = () => {
   return (
     <div className="slide" id="portfolio">
       <div className="slide-header">
-        <Fade bottom>
+        <Fade direction="up" triggerOnce>
           <h2>My Work</h2>
         </Fade>
         <div className="underline" />
       </div>
-      <Fade bottom>
+      <Fade direction="up" triggerOnce>
         <p>Projects that I'm currently working on/have worked on in the past</p>
       </Fade>
       <div className="slide-content">
         <div id="card-grid">
-          <Fade bottom>
+          <Fade direction="up" triggerOnce>
             <div className="card-group">
               <Card className="card">
                 <div className="card-content" id="project1">

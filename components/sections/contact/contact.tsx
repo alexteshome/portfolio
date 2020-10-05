@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { FC, useState } from "react";
 import { Button, TextField, CircularProgress } from "@material-ui/core";
-//import creds from "../config";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "isomorphic-fetch";
 import "./contact.scss";
-import config from "react-reveal/globals";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 
-config({ ssrFadeout: true });
-
-const Contact = () => {
+export const Contact: FC = () => {
   const [name, changeName] = useState("");
   const [email, changeEmail] = useState("");
   const [message, changeMessage] = useState("");
@@ -21,18 +17,18 @@ const Contact = () => {
     changeMessage("");
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
     fetch("/api/contact", {
       method: "post",
       headers: {
         Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, message })
+      body: JSON.stringify({ name, email, message }),
     })
-      .then(async response => {
+      .then(async (response) => {
         const data = await response.json();
         if (data.success) {
           if (typeof window !== `undefined`) {
@@ -46,7 +42,7 @@ const Contact = () => {
         }
         setLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         alert("Message failed to send:\n\n" + err);
         setLoading(false);
@@ -56,12 +52,12 @@ const Contact = () => {
   return (
     <div className="slide" id="contact">
       <div className="slide-header">
-        <Fade>
+        <Fade direction="up" triggerOnce>
           <h2>Let's Get In Touch</h2>
         </Fade>
         <div className="underline" />
       </div>
-      <Fade>
+      <Fade direction="up" triggerOnce>
         <div className="social-links">
           <button
             color="inherit"
@@ -83,13 +79,13 @@ const Contact = () => {
           </button>
         </div>
       </Fade>
-      <Fade>
+      <Fade direction="up" triggerOnce>
         <h3>
           If you want to collaborate, have any inquiries, or just want to chat!
         </h3>
       </Fade>
 
-      <Fade>
+      <Fade direction="up" triggerOnce>
         <form id="contact-form" onSubmit={handleSubmit}>
           <TextField
             type="text"
@@ -98,7 +94,7 @@ const Contact = () => {
             id="name"
             fullWidth
             value={name}
-            onChange={e => changeName(e.target.value)}
+            onChange={(e) => changeName(e.target.value)}
           />
           <TextField
             type="email"
@@ -107,7 +103,7 @@ const Contact = () => {
             required
             id="email"
             value={email}
-            onChange={e => changeEmail(e.target.value)}
+            onChange={(e) => changeEmail(e.target.value)}
           />
           <TextField
             rows="8"
@@ -117,7 +113,7 @@ const Contact = () => {
             required
             id="message"
             value={message}
-            onChange={e => changeMessage(e.target.value)}
+            onChange={(e) => changeMessage(e.target.value)}
           />
           <Button
             type="submit"
@@ -133,5 +129,3 @@ const Contact = () => {
     </div>
   );
 };
-
-export default Contact;
