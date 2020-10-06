@@ -100,7 +100,6 @@ export const Layout: FC<LayoutProps> = (props) => {
             setIsHome(isVisible);
             return onVisChange(isVisible, "home");
           }}
-          partialVisibility="top"
           offset={{
             top:
               typeof window !== "undefined" ? -window.innerHeight + 80 : -200,
