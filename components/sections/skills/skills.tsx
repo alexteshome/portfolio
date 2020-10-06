@@ -21,7 +21,7 @@ export const Skills: FC = () => {
         <Paper className={`skills-table skills-table-other`} elevation={5}>
           <div className="skills-details">
             <div className="skills-section">
-              <Fade direction="up" triggerOnce>
+              <Fade triggerOnce>
                 <FaLaptopCode className="title-icon" />
                 <h3>Front End</h3>
                 <p>
@@ -48,7 +48,7 @@ export const Skills: FC = () => {
             />
 
             <div className="skills-section">
-              <Fade direction="up" triggerOnce>
+              <Fade triggerOnce>
                 <FaNetworkWired className="title-icon" />
                 <h3>Back End</h3>
                 <p>

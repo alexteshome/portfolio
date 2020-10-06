@@ -11,17 +11,17 @@ export const Portfolio: FC = () => {
   return (
     <div className="slide" id="portfolio">
       <div className="slide-header">
-        <Fade direction="up" triggerOnce>
+        <Fade triggerOnce>
           <h2>My Work</h2>
         </Fade>
         <div className="underline" />
       </div>
-      <Fade direction="up" triggerOnce>
+      <Fade triggerOnce>
         <p>Projects that I'm currently working on/have worked on in the past</p>
       </Fade>
       <div className="slide-content">
         <div id="card-grid">
-          <Fade direction="up" triggerOnce>
+          <Fade triggerOnce>
             <div className="card-group">
               <Card className="card">
                 <div className="card-content" id="project1">

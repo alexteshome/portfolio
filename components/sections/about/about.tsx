@@ -5,14 +5,14 @@ export const About = () => {
   return (
     <div className="slide" id="about">
       <div className="slide-header">
-        <Fade direction="up" triggerOnce>
+        <Fade triggerOnce>
           <h2>About Me</h2>
         </Fade>
         <div className="underline" />
       </div>
 
       <div className="slide-content">
-        <Fade direction="up" triggerOnce>
+        <Fade triggerOnce>
           <p>
             I'm a Toronto-based full-stack developer with a passion for
             creative, efficient, and intuitive web design, primarily with the
