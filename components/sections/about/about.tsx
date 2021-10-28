@@ -1,9 +1,9 @@
-import "./about.scss";
+import styles from "./about.module.scss";
 import { Fade } from "react-awesome-reveal";
 
 export const About = () => {
   return (
-    <div className="slide" id="about">
+    <div className={`slide ${styles.slide}`} id="about">
       <div className="slide-header">
         <Fade triggerOnce>
           <h2>About Me</h2>

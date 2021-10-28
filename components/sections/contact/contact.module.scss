@@ -1,8 +1,8 @@
-@import "../../../scss/variables";
-@import "../../../scss/mixins";
-@import "../../../scss/functions";
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+@import "../../../styles/functions";
 
-#contact {
+.slide {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,7 @@
   & > * {
     margin: 0px 20px;
   }
-  #contact-form {
+  [id~=contact-form]{
     & > * {
       margin: 10px 0px;
     }
@@ -21,7 +21,7 @@
   h3 {
     margin: 25px 20px 20px 20px;
   }
-  .social-links {
+  .socials {
     display: flex;
     @media screen and (max-width: 799px) {
       svg {

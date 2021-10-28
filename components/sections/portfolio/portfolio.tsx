@@ -3,13 +3,13 @@ import CardContent from "@material-ui/core/CardContent";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
-import "./portfolio.scss";
+import styles from "./portfolio.module.scss";
 import { Fade } from "react-awesome-reveal";
 import { FC } from "react";
 
 export const Portfolio: FC = () => {
   return (
-    <div className="slide" id="portfolio">
+    <div className={`slide ${styles.slide}`} id="portfolio">
       <div className="slide-header">
         <Fade triggerOnce>
           <h2>My Work</h2>
@@ -20,25 +20,25 @@ export const Portfolio: FC = () => {
         <p>Projects that I'm currently working on/have worked on in the past</p>
       </Fade>
       <div className="slide-content">
-        <div id="card-grid">
+        <div className={styles.cardGrid}>
           <Fade triggerOnce>
-            <div className="card-group">
-              <Card className="card">
-                <div className="card-content" id="project1">
+            <div className={styles.cardGroup}>
+              <Card className={styles.card}>
+                <div className={styles.cardContent} id="project1">
                   <img
-                    className="card-image"
+                    className={styles.cardImage}
                     src="/screenshots/cmbaconsulting.png"
                   />
                   <CardContent>
-                    <div className="card-description">
-                      <h2 className="card-title">
+                    <div className={styles.cardDescription}>
+                      <h2 className={styles.cardTitle}>
                         Chika Mba Consulting Inc (Freelance)
                       </h2>
                       {/* <p>Consulting website built with</p> */}
                       <Typography variant="body2" component="p">
                         React + Gatsby + Node
                       </Typography>
-                      <div className="inside-buttons">
+                      <div className="insideButtons">
                         <IconButton
                           color="inherit"
                           onClick={() =>
@@ -52,7 +52,7 @@ export const Portfolio: FC = () => {
                   </CardContent>
                 </div>
               </Card>
-              <div className="outside-buttons">
+              <div className={styles.outsideButtons}>
                 <IconButton
                   color="inherit"
                   onClick={() =>
@@ -63,18 +63,18 @@ export const Portfolio: FC = () => {
                 </IconButton>
               </div>
             </div>
-            <div className="card-group">
-              <Card className="card">
-                <div className="card-content" id="atmdb">
-                  <img className="card-image" src="/screenshots/atmdb.png" />
+            <div className={styles.cardGroup}>
+              <Card className={styles.card}>
+                <div className={styles.cardContent} id="atmdb">
+                  <img className={styles.cardImage} src="/screenshots/atmdb.png" />
                   <CardContent>
-                    <div className="card-description">
-                      <h2 className="card-title">ATMDb - Popular Movies</h2>
+                    <div className={styles.cardDescription}>
+                      <h2 className={styles.cardTitle}>ATMDb - Popular Movies</h2>
                       {/* <p>Consulting website built with</p> */}
                       <Typography variant="body2" component="p">
                         React + Redux + Semantic UI
                       </Typography>
-                      <div className="inside-buttons">
+                      <div className={styles.insideButtons}>
                         <IconButton
                           color="inherit"
                           onClick={() =>
@@ -102,7 +102,7 @@ export const Portfolio: FC = () => {
                   </CardContent>
                 </div>
               </Card>
-              <div className="outside-buttons">
+              <div className={styles.outsideButtons}>
                 <IconButton
                   color="inherit"
                   onClick={() =>
@@ -127,23 +127,23 @@ export const Portfolio: FC = () => {
                 </IconButton>
               </div>{" "}
             </div>
-            <div className="card-group">
-              <Card className="card">
-                <div className="card-content" id="atmdb">
+            <div className={styles.cardGroup}>
+              <Card className={styles.card}>
+                <div className={styles.cardContent} id="atmdb">
                   <img
-                    className="card-image"
+                    className={styles.cardImage}
                     src="/screenshots/fantasyat.png"
                   />
                   <CardContent>
-                    <div className="card-description">
-                      <h2 className="card-title">
+                    <div className={styles.cardDescription}>
+                      <h2 className={styles.cardTitle}>
                         FantasyAT - Fantasy Basketball Team Storage
                       </h2>
                       {/* <p>Consulting website built with</p> */}
                       <Typography variant="body2" component="p">
                         React + Redux + Node + MongoDB
                       </Typography>
-                      <div className="inside-buttons">
+                      <div className={styles.insideButtons}>
                         <IconButton
                           color="inherit"
                           onClick={() =>
@@ -171,7 +171,7 @@ export const Portfolio: FC = () => {
                   </CardContent>
                 </div>
               </Card>
-              <div className="outside-buttons">
+              <div className={styles.outsideButtons}>
                 <IconButton
                   color="inherit"
                   onClick={() =>

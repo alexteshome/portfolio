@@ -1,5 +1,4 @@
 import { useState, useEffect, FC } from "react";
-import "./layout.scss";
 import Head from "next/head";
 import { Link } from "react-scroll";
 import {
@@ -12,11 +11,11 @@ import {
 } from "react-icons/fa";
 import VisibilitySensor from "react-visibility-sensor";
 import { ThemeProvider } from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme } from "@material-ui/core/styles";
 import { MY_SEO } from "../../config";
 import { LayoutProps } from "types.dt";
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,

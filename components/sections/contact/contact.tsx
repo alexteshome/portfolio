@@ -2,7 +2,7 @@ import React, { FC, FormEvent, useState } from "react";
 import { Button, TextField, CircularProgress } from "@material-ui/core";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "isomorphic-fetch";
-import "./contact.scss";
+import styles from "./contact.module.scss";
 import { Fade } from "react-awesome-reveal";
 
 export const Contact: FC = () => {
@@ -50,7 +50,7 @@ export const Contact: FC = () => {
   };
 
   return (
-    <div className="slide" id="contact">
+    <div className={`slide ${styles.slide}`} id="contact">
       <div className="slide-header">
         <Fade triggerOnce>
           <h2>Let's Get In Touch</h2>
@@ -58,7 +58,7 @@ export const Contact: FC = () => {
         <div className="underline" />
       </div>
       <Fade triggerOnce>
-        <div className="social-links">
+        <div className={styles.socials}>
           <button
             color="inherit"
             onClick={() =>

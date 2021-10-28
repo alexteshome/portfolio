@@ -1,0 +1,75 @@
+@use "sass:math";
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin keyframesLeft($name, $menuIndex) {
+  @include keyframes(#{$name}) {
+    20% {
+      position: sticky;
+      position: -webkit-sticky;
+    }
+    50% {
+      position: relative;
+      left: -100% * ($menuIndex);
+    }
+    55% {
+      top: -100% * ($menuIndex);
+      left: 0;
+
+      position: relative;
+    }
+
+    100% {
+      position: relative;
+      top: 0;
+    }
+  }
+}
+
+@mixin prefixer($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -khtml-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+@mixin h2AndLogo($size) {
+  width: $size;
+  height: $size;
+  margin-top: math.div(-$size, 2);
+  margin-left: math.div(-$size, 2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+}
+@mixin orbitSize($logo, $i, $seconds, $size) {
+  $radius: 1 + $i * $size;
+
+  ##{$logo}.orbit {
+    animation-name: #{$logo}-orbit;
+    width: $radius * 2;
+    height: $radius * 2;
+    margin-top: -$radius;
+    margin-left: -$radius;
+    animation-duration: $seconds;
+  }
+  .skill-logo {
+    width: $size;
+  }
+}

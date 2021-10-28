@@ -1,8 +1,8 @@
-@import "../../../scss/variables";
-@import "../../../scss/mixins";
-@import "../../../scss/functions";
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+@import "../../../styles/functions";
 
-#portfolio {
+.slide {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,14 +11,14 @@
   padding-top: 5vh;
   padding-bottom: 10vh;
   background-color: $light-shade;
-  #card-grid {
+  .cardGrid {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100%;
-    .card-group {
+    .cardGroup {
       flex: 0 1 400px;
       margin: 1em;
       max-width: 100%;
@@ -29,12 +29,12 @@
         height: 200px;
       }
 
-      .card-content {
+      .cardContent {
         height: 100%;
         button {
           margin: 1em 0.5em;
         }
-        .card-description {
+        .cardDescription {
           h2 {
             font-size: 1em;
           }
@@ -48,15 +48,15 @@
         &:hover {
           background-color: $dark-shade;
 
-          .card-description {
+          .cardDescription {
             display: inherit;
           }
-          & .card-image {
+          & .cardImage {
             opacity: 0.1;
           }
         }
       }
-      .card-image {
+      .cardImage {
         height: 200px;
         width: 400px;
         overflow: hidden;
@@ -66,20 +66,21 @@
   p {
     margin: 20px 20px;
   }
-}
-
-@media screen and (min-width: 800px) {
-  .outside-buttons {
-    display: none;
-  }
-}
-@media screen and (max-width: 799px) {
-  .inside-buttons {
-    display: none;
-  }
-  @media screen and (max-width: 799px) {
-    svg {
-      color: $main-color;
+  @media screen and (min-width: 800px) {
+    .outsideButtons {
+      display: none;
     }
   }
+  @media screen and (max-width: 799px) {
+    .insideButtons {
+      display: none;
+    }
+    @media screen and (max-width: 799px) {
+      svg {
+        color: $main-color;
+      }
+    }
+  }
+
 }
+

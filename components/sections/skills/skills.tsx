@@ -1,6 +1,5 @@
 import { Paper, Divider } from "@material-ui/core/";
 import { FaNetworkWired, FaLaptopCode } from "react-icons/fa";
-import "./skills.scss";
 import { Fade } from "react-awesome-reveal";
 import { FC } from "react";
 
