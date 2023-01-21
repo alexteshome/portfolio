@@ -1,7 +1,8 @@
-import styles from "./about.module.scss";
-import { Fade } from "react-awesome-reveal";
+import { FC } from 'react'
+import styles from './about.module.scss'
+import { Fade } from 'react-awesome-reveal'
 
-export const About = () => {
+export const About: FC = () => {
   return (
     <div className={`slide ${styles.slide}`} id="about">
       <div className="slide-header">
@@ -16,12 +17,11 @@ export const About = () => {
           <p>
             I'm a Toronto-based full-stack developer with a passion for
             creative, efficient, and intuitive web design, primarily with the
-            MERN stack. I recently graduated from the University of Toronto for
-            Computer Science, and currently, I am building an SEO-friendly web
-            application with React, Gatsby, and Node for a consulting business.
+            MERN stack. I graduated from the University of Toronto for Computer
+            Science.
           </p>
         </Fade>
       </div>
     </div>
-  );
-};
+  )
+}

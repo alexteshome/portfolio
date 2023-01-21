@@ -1,6 +1,6 @@
-@import "../../../styles/variables";
-@import "../../../styles/mixins";
-@import "../../../styles/functions";
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/functions';
 
 .slide {
   display: flex;
@@ -57,8 +57,6 @@
         }
       }
       .cardImage {
-        height: 200px;
-        width: 400px;
         overflow: hidden;
       }
     }
@@ -81,6 +79,4 @@
       }
     }
   }
-
 }
-

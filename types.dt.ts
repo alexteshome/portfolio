@@ -1,5 +1,2 @@
-export interface LayoutProps {
-  currentSection: string;
-  menuItems: string[];
-  onVisChange: (isVisible: boolean, tab: string) => void;
-}
+/* eslint-disable @typescript-eslint/no-unused-vars */
+type MenuItem = 'about' | 'skills' | 'portfolio' | 'contact'

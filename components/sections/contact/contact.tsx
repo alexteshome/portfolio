@@ -1,53 +1,52 @@
-import React, { FC, FormEvent, useState } from "react";
-import { Button, TextField, CircularProgress } from "@material-ui/core";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
-import "isomorphic-fetch";
-import styles from "./contact.module.scss";
-import { Fade } from "react-awesome-reveal";
+import { FC, FormEvent, useState } from 'react'
+import { Button, TextField, CircularProgress } from '@mui/material'
+import { FaLinkedin, FaGithub } from 'react-icons/fa'
+import 'isomorphic-fetch'
+import styles from './contact.module.scss'
+import { Fade } from 'react-awesome-reveal'
 
 export const Contact: FC = () => {
-  const [name, changeName] = useState("");
-  const [email, changeEmail] = useState("");
-  const [message, changeMessage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [name, changeName] = useState('')
+  const [email, changeEmail] = useState('')
+  const [message, changeMessage] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const resetForm = () => {
-    changeName("");
-    changeEmail("");
-    changeMessage("");
-  };
+    changeName('')
+    changeEmail('')
+    changeMessage('')
+  }
 
   const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    fetch("/api/contact", {
-      method: "post",
+    e.preventDefault()
+    setLoading(true)
+    fetch('/api/contact', {
+      method: 'post',
       headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name, email, message }),
     })
       .then(async (response) => {
-        const data = await response.json();
+        const data = await response.json()
         if (data.success) {
           if (typeof window !== `undefined`) {
-            resetForm();
-            alert("Message Sent.");
+            resetForm()
+            alert('Message Sent.')
           }
         } else {
           if (typeof window !== `undefined`) {
-            alert("Message failed to send.");
+            alert('Message failed to send.')
           }
         }
-        setLoading(false);
+        setLoading(false)
       })
       .catch((err) => {
-        console.log(err);
-        alert("Message failed to send:\n\n" + err);
-        setLoading(false);
-      });
-  };
+        alert('Message failed to send:\n\n' + err)
+        setLoading(false)
+      })
+  }
 
   return (
     <div className={`slide ${styles.slide}`} id="contact">
@@ -63,8 +62,8 @@ export const Contact: FC = () => {
             color="inherit"
             onClick={() =>
               window.open(
-                "https://www.linkedin.com/in/alex-teshome-74340b111/",
-                "_blank"
+                'https://www.linkedin.com/in/alex-teshome-74340b111/',
+                '_blank'
               )
             }
           >
@@ -72,7 +71,7 @@ export const Contact: FC = () => {
           </button>
           <button
             onClick={() =>
-              window.open("https://github.com/alexteshome", "_blank")
+              window.open('https://github.com/alexteshome', '_blank')
             }
           >
             <FaGithub />
@@ -122,10 +121,10 @@ export const Contact: FC = () => {
             disabled={loading}
             className="contact-button"
           >
-            {loading ? <CircularProgress size="2em" /> : "Submit"}
+            {loading ? <CircularProgress size="2em" /> : 'Submit'}
           </Button>
         </form>
       </Fade>
     </div>
-  );
-};
+  )
+}

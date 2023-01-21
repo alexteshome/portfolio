@@ -1,33 +1,34 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from 'next'
 
-import sgMail from "@sendgrid/mail";
+import sgMail from '@sendgrid/mail'
+const api = (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.method === 'POST') {
+    const { name, email, message } = req.body
+    const { SENDGRID_API_KEY = '' } = process.env
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === "POST") {
-    const { name, email, message } = req.body;
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    sgMail.setApiKey(SENDGRID_API_KEY)
     const msg = {
-      to: "alex.g.teshome@gmail.com",
+      to: 'alex.g.teshome@gmail.com',
       from: email,
-      subject: name + " messaged you through your contact form.",
+      subject: name + ' messaged you through your contact form.',
       text: message,
-    };
+    }
 
     sgMail
       .send(msg)
       .then((data) => {
-        console.log(data);
-        res.statusCode = 200;
-        res.end(JSON.stringify({ success: true, message: data }));
+        res.statusCode = 200
+        res.end(JSON.stringify({ success: true, message: data }))
       })
       .catch((err) => {
-        console.log(err);
-        res.statusCode = 500;
-        res.end(JSON.stringify({ success: false, message: err }));
-      });
+        res.statusCode = 500
+        res.end(JSON.stringify({ success: false, message: err }))
+      })
   } else {
-    res.setHeader("Content-Type", "application/json");
-    res.statusCode = 200;
-    res.end(JSON.stringify({ name: "Nextjs" }));
+    res.setHeader('Content-Type', 'application/json')
+    res.statusCode = 200
+    res.end(JSON.stringify({ name: 'Nextjs' }))
   }
-};
+}
+
+export default api
