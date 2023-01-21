@@ -1,17 +1,18 @@
-import { Paper, Divider } from "@material-ui/core/";
-import { FaNetworkWired, FaLaptopCode } from "react-icons/fa";
-import { Fade } from "react-awesome-reveal";
-import { FC } from "react";
+import { Paper, Divider } from '@mui/material'
+import { FaNetworkWired, FaLaptopCode } from 'react-icons/fa'
+import { Fade } from 'react-awesome-reveal'
+import { FC } from 'react'
+import Image from 'next/image'
 
 const mainStack = [
-  "typescript",
-  "react",
-  "sass",
-  "nodejs",
-  "mysql",
-  "mongodb",
-  "azure",
-];
+  'typescript',
+  'react',
+  'sass',
+  'nodejs',
+  'mysql',
+  'python',
+  'aws',
+] as const
 
 export const Skills: FC = () => {
   return (
@@ -57,10 +58,7 @@ export const Skills: FC = () => {
                 <h4>Languages</h4>
                 <p>JavaScript, TypeScript, Python, Java, C#, Bash, Perl, SQL</p>
                 <h4>Frameworks / Libraries / Tools</h4>
-                <p>
-                  Express, NestJS, Django, MySQL, Oracle, PostgreSQL, MSSQL,
-                  MongoDB, Azure
-                </p>
+                <p>Node, Django, Flask, MongoDB, AWS, GCP, Azure</p>
               </Fade>
             </div>
           </div>
@@ -78,16 +76,20 @@ export const Skills: FC = () => {
                   <div className="orbit" id={`${logo}`}>
                     <div className="pos">
                       <div className="skill-logo">
-                        <img src={`/logos/${logo}.svg`} alt={logo} />
+                        <Image
+                          src={`/logos/${logo}.svg`}
+                          alt={logo}
+                          fill={true}
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
-              );
+              )
             })}
           </div>
         </Paper>
       </div>
     </div>
-  );
-};
+  )
+}

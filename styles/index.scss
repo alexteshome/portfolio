@@ -1,7 +1,7 @@
-@use "sass:math";
-@import "variables";
-@import "mixins";
-@import "functions";
+@use 'sass:math';
+@import 'variables';
+@import 'mixins';
+@import 'functions';
 
 /* TO DO!!!!!!!!!!!!!: Turn navbar to shrinking and expanding flex box column/row 
 - Make skill table responsive!
@@ -10,31 +10,31 @@ html {
   height: 100%;
 }
 @font-face {
-  font-family: "Raleway";
-  src: url("/fonts/Raleway/Raleway-Light.ttf") format("truetype");
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway/Raleway-Light.ttf') format('truetype');
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
-  font-family: "Raleway";
-  src: url("/fonts/Raleway/Raleway-Regular.ttf") format("truetype");
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway/Raleway-Regular.ttf') format('truetype');
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "OpenSans";
-  src: url("/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+  font-family: 'OpenSans';
+  src: url('/fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
   font-weight: 400;
   font-display: swap;
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   h1,
   h2,
   h3,
   h4 {
-    font-family: "Raleway", sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
   margin: 0;
   background-color: $light-shade;
@@ -93,7 +93,7 @@ body {
       }
     }
     &:before {
-      content: "";
+      content: '';
       z-index: -10;
       position: absolute;
       height: 100%;
@@ -333,9 +333,6 @@ body {
 }
 // expand left items after shrinkBottom ^^^
 
-
-
-
 #skills {
   @include prefixer(
     background,
@@ -392,11 +389,11 @@ body {
             #{$logo}-zIndex $seconds linear infinite
           );
           .skill-logo {
-            @if $logo == "mongodb" {
+            @if $logo == 'mongodb' {
               transform: scale(2);
-            } @else if $logo == "nodejs" {
+            } @else if $logo == 'nodejs' {
               transform: scale(1.3);
-            } @else if $logo == "css3" {
+            } @else if $logo == 'css3' {
               transform: scale(0.8);
             }
           }
@@ -428,7 +425,7 @@ body {
           @media screen and (min-width: 1250px) {
             @include orbitSize($logo, $i, $seconds, 4vw);
             .skill-logo {
-              @include h2AndLogo(4em);
+              @include h2AndLogo(3.5em);
             }
             h2 {
               font-size: 1.5em;
@@ -437,20 +434,20 @@ body {
           @media screen and (min-width: 800px) and (max-width: 1249px) {
             @include orbitSize($logo, $i, $seconds, 4vw);
             .skill-logo {
-              @include h2AndLogo(3em);
+              @include h2AndLogo(2.5em);
             }
           }
           @media screen and (min-width: 500px) and (max-width: 799px) {
             @include orbitSize($logo, $i, $seconds, 4vw);
             .skill-logo {
-              @include h2AndLogo(2em);
+              @include h2AndLogo(1.5em);
             }
           }
           @media screen and (max-width: 499px) {
             @include orbitSize($logo, $i, $seconds, 4vw);
 
             .skill-logo {
-              @include h2AndLogo(1.5em);
+              @include h2AndLogo(1em);
             }
             h2 {
               font-size: 0.75em;
@@ -508,7 +505,7 @@ body {
                 $scale: 0.85;
               }
               transform: rotateX(-90deg) rotateY($direction)
-                rotateZ(-$orbitAngle) scale($scale +  math.div($i, 50));
+                rotateZ(-$orbitAngle) scale($scale + math.div($i, 50));
             }
 
             50% {
@@ -528,7 +525,7 @@ body {
                 $scale: 1.15;
               }
               transform: rotateX(-90deg) rotateY($direction)
-                rotateZ(-$orbitAngle) scale($scale +  math.div($i, 50));
+                rotateZ(-$orbitAngle) scale($scale + math.div($i, 50));
             }
             100% {
               $direction: -90deg;
@@ -592,7 +589,11 @@ body {
         $randomNumber-y: math.div($i, 1.3) + math.div($i, 3) + 3s;
         ##{$logo}-x {
           animation: #{$logo}-x-initial math.div($randomNumber-x, 2) linear,
-            #{$logo}-x $randomNumber-x linear math.div($randomNumber-x, 2) infinite;
+            #{$logo}-x
+              $randomNumber-x
+              linear
+              math.div($randomNumber-x, 2)
+              infinite;
           left: 50%;
           top: 50%;
           margin-top: -30px;

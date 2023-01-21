@@ -1,5 +1,1 @@
-export interface LayoutProps {
-  currentSection: string;
-  menuItems: string[];
-  onVisChange: (isVisible: boolean, tab: string) => void;
-}
+export type MenuItem = 'about' | 'skills' | 'portfolio' | 'contact'

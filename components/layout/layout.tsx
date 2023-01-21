@@ -1,6 +1,11 @@
-import { useState, useEffect, FC } from "react";
-import Head from "next/head";
-import { Link } from "react-scroll";
+import { useState, useEffect, FC, ReactNode } from 'react'
+import {
+  createTheme,
+  StyledEngineProvider,
+  ThemeProvider,
+} from '@mui/material/styles'
+import Head from 'next/head'
+import { Link } from 'react-scroll'
 import {
   FaHome,
   FaRegUser,
@@ -8,41 +13,39 @@ import {
   FaRegFolder,
   FaRegFolderOpen,
   FaRegEnvelope,
-} from "react-icons/fa";
-import VisibilitySensor from "react-visibility-sensor";
-import { ThemeProvider } from "@material-ui/styles";
-import { createTheme } from "@material-ui/core/styles";
-import { MY_SEO } from "../../config";
-import { LayoutProps } from "types.dt";
+} from 'react-icons/fa'
+import VisibilitySensor from 'react-visibility-sensor'
+import { MY_SEO } from '../../config'
+import { MenuItem } from '../../types.dt'
 
 const theme = createTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: "#5898b1",
+      main: '#5898b1',
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     },
     secondary: {
-      main: "#8C8997",
+      main: '#8C8997',
       // dark: will be calculated from palette.secondary.main,
     },
     info: {
-      main: "#1e1420",
+      main: '#1e1420',
     },
     success: {
-      main: "#44a469",
+      main: '#44a469',
     },
     warning: {
-      main: "#c19431",
+      main: '#c19431',
     },
     error: {
-      main: "#f44336",
+      main: '#f44336',
     },
   },
-});
+})
 
-const size = "2.5rem";
+const size = '2.5rem'
 const icons = {
   home: <FaHome size={size} />,
   about: <FaRegUser size={size} />,
@@ -51,23 +54,30 @@ const icons = {
   portfolio: <FaRegFolder size={size} />,
   portfolioOpen: <FaRegFolderOpen size={size} />,
   contact: <FaRegEnvelope size={size} />,
-};
+}
+
+export interface LayoutProps {
+  currentSection: string
+  menuItems: MenuItem[]
+  onVisChange: (isVisible: boolean, tab: string) => void
+  children: ReactNode
+}
 
 export const Layout: FC<LayoutProps> = (props) => {
-  const [transition, setTranstion] = useState("bottom bottom-initial");
-  const [isHome, setIsHome] = useState(true);
-  const { currentSection, menuItems, onVisChange } = props;
-  const [renderType, setRenderType] = useState("mounted");
+  const [transition, setTranstion] = useState('bottom bottom-initial')
+  const [isHome, setIsHome] = useState(true)
+  const { currentSection, menuItems, onVisChange } = props
+  const [renderType, setRenderType] = useState('mounted')
 
   useEffect(() => {
     const transitionNav = () => {
-      if (renderType === "updated")
-        setTranstion(isHome ? "bottom bottom-transition" : "left-transition");
-    };
+      if (renderType === 'updated')
+        setTranstion(isHome ? 'bottom bottom-transition' : 'left-transition')
+    }
 
-    transitionNav();
-    setRenderType("updated");
-  }, [isHome]);
+    transitionNav()
+    setRenderType('updated')
+  }, [isHome])
   return (
     <div>
       <Head>
@@ -93,68 +103,70 @@ export const Layout: FC<LayoutProps> = (props) => {
         <meta key="og:url" name="og:url" content={MY_SEO.openGraph.url} />
         <meta key="og:image" name="og:image" content={MY_SEO.openGraph.image} />
       </Head>
-      <ThemeProvider theme={theme}>
-        <VisibilitySensor
-          onChange={(isVisible) => {
-            setIsHome(isVisible);
-            return onVisChange(isVisible, "home");
-          }}
-          offset={{
-            top:
-              typeof window !== "undefined" ? -window.innerHeight + 80 : -200,
-          }}
-        >
-          <div className="hero-tabs" id="home">
-            <div className="content">
-              <h1 id="title">HI, I'M ALEX TESHOME</h1>
-              <h3>Full Stack Developer | React | Node</h3>
-            </div>
-            <div className={`hero-tabs-container ${transition}`}>
-              <Link
-                className="hero-tab link-home"
-                to="home"
-                spy={true}
-                smooth="easeInOutQuad"
-                duration={700}
-              >
-                <span>{icons.home}</span>
-              </Link>
-              {menuItems.map((item) => (
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <VisibilitySensor
+            onChange={(isVisible: boolean) => {
+              setIsHome(isVisible)
+              return onVisChange(isVisible, 'home')
+            }}
+            offset={{
+              top:
+                typeof window !== 'undefined' ? -window.innerHeight + 80 : -200,
+            }}
+          >
+            <div className="hero-tabs" id="home">
+              <div className="content">
+                <h1 id="title">HI, I'M ALEX TESHOME</h1>
+                <h3>Full Stack Developer | React | Node</h3>
+              </div>
+              <div className={`hero-tabs-container ${transition}`}>
                 <Link
-                  activeClass="active-section"
-                  key={item}
-                  className={`hero-tab link-${item} browser`}
-                  to={item}
+                  className="hero-tab link-home"
+                  to="home"
                   spy={true}
                   smooth="easeInOutQuad"
                   duration={700}
                 >
-                  <span className="tab-container">{icons[item]}</span>
+                  <span>{icons.home}</span>
                 </Link>
-              ))}
-              {menuItems.map((item) => (
-                <Link
-                  activeClass="active-section"
-                  key={item + "-mobile"}
-                  className={`hero-tab link-${item} mobile`}
-                  to={item}
-                  spy={true}
-                  smooth="easeInOutQuad"
-                  duration={700}
-                  offset={-75}
-                >
-                  <span className="tab-container">{icons[item]}</span>
-                </Link>
-              ))}
+                {menuItems.map((item) => (
+                  <Link
+                    activeClass="active-section"
+                    key={item}
+                    className={`hero-tab link-${item} browser`}
+                    to={item}
+                    spy={true}
+                    smooth="easeInOutQuad"
+                    duration={700}
+                  >
+                    <span className="tab-container">{icons[item]}</span>
+                  </Link>
+                ))}
+                {menuItems.map((item) => (
+                  <Link
+                    activeClass="active-section"
+                    key={item + '-mobile'}
+                    className={`hero-tab link-${item} mobile`}
+                    to={item}
+                    spy={true}
+                    smooth="easeInOutQuad"
+                    duration={700}
+                    offset={-75}
+                  >
+                    <span className="tab-container">{icons[item]}</span>
+                  </Link>
+                ))}
 
-              <span
-                className={`hero-tab-slider hero-tab-slider-${currentSection}`}
-              ></span>
+                <span
+                  className={`hero-tab-slider hero-tab-slider-${currentSection}`}
+                ></span>
+              </div>
             </div>
-          </div>
-        </VisibilitySensor>
-        {props.children}
-      </ThemeProvider>
+          </VisibilitySensor>
+          {props.children}
+        </ThemeProvider>
+      </StyledEngineProvider>
     </div>
-  );
-};
+  )
+}
