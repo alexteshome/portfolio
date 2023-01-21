@@ -9,9 +9,9 @@ const api = (req: NextApiRequest, res: NextApiResponse) => {
     sgMail.setApiKey(SENDGRID_API_KEY)
     const msg = {
       to: 'alex.g.teshome@gmail.com',
-      from: email,
+      from: 'alex.g.teshome@gmail.com',
       subject: name + ' messaged you through your contact form.',
-      text: message,
+      text: `Email:${email} \n${message}`,
     }
 
     sgMail
