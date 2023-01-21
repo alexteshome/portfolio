@@ -82,11 +82,6 @@ export const Layout: FC<LayoutProps> = (props) => {
     <div>
       <Head>
         <title key="title">{MY_SEO.title}</title>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
-
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           key="description"
