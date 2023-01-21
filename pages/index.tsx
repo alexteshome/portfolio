@@ -7,6 +7,7 @@ import { Skills } from '../components/sections/skills'
 import { Portfolio } from '../components/sections/portfolio'
 import { Contact } from '../components/sections/contact'
 import { objectKeys } from 'ts-extras'
+import { MenuItem } from '../types.dt'
 
 const menuItems = {
   about: About,

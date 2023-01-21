@@ -16,6 +16,7 @@ import {
 } from 'react-icons/fa'
 import VisibilitySensor from 'react-visibility-sensor'
 import { MY_SEO } from '../../config'
+import { MenuItem } from '../../types.dt'
 
 const theme = createTheme({
   palette: {
