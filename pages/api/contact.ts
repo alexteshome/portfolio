@@ -11,7 +11,7 @@ const api = (req: NextApiRequest, res: NextApiResponse) => {
       to: 'alex.g.teshome@gmail.com',
       from: 'alex.g.teshome@gmail.com',
       subject: name + ' messaged you through your contact form.',
-      text: `Email:${email} \n${message}`,
+      text: `Email: ${email} \n${message}`,
     }
 
     sgMail
