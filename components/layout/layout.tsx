@@ -77,7 +77,7 @@ export const Layout: FC<LayoutProps> = (props) => {
 
     transitionNav()
     setRenderType('updated')
-  }, [isHome])
+  }, [isHome, renderType])
   return (
     <div>
       <Head>
