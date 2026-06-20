@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Alex Teshome's personal portfolio — React 19 + Vite 6 + TypeScript scroll site",
   "author": "Alex Teshome",
-  "keywords": ["portfolio", "react", "vite", "typescript"],
+  "keywords": [
+    "portfolio",
+    "react",
+    "vite",
+    "typescript"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,12 +18,19 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "tsc -b"
+    "typecheck": "tsc -b",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "license": "ISC",
   "packageManager": "pnpm@11.8.0",
   "pnpm": {
-    "onlyBuiltDependencies": ["@parcel/watcher", "esbuild", "unrs-resolver"],
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "unrs-resolver"
+    ],
     "peerDependencyRules": {
       "allowedVersions": {
         "react-scroll>react": "19",
@@ -44,19 +56,25 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^22.15.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "@types/react-scroll": "^1.8.10",
     "@vitejs/plugin-react": "^4.4.1",
+    "@vitest/coverage-v8": "^4.1.9",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "happy-dom": "^20.10.6",
     "prettier": "^3.5.3",
     "sass": "^1.89.1",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.1",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vitest": "^4.1.9"
   }
 }
