@@ -1,7 +1,7 @@
 @use 'sass:math';
-@import 'variables';
-@import 'mixins';
-@import 'functions';
+@use 'sass:list';
+@use 'variables' as *;
+@use 'mixins' as *;
 
 /* TO DO!!!!!!!!!!!!!: Turn navbar to shrinking and expanding flex box column/row 
 - Make skill table responsive!
@@ -191,8 +191,8 @@ body {
       &.bottom-transition {
         @include prefixer(animation, expandBottom 0.6s ease 1 normal forwards);
       }
-      @for $i from 1 through length($menu-items) {
-        $menuItem: nth($menu-items, $i);
+      @for $i from 1 through list.length($menu-items) {
+        $menuItem: list.nth($menu-items, $i);
         .link-#{$menuItem} {
           // loops through menu item array to set the active tab slider
 
@@ -216,8 +216,8 @@ body {
       position: fixed;
       left: 2em;
       @include prefixer(animation, shrinkBottom 0.8s ease 1 normal);
-      @for $i from 1 through length($menu-items) {
-        $menuItem: nth($menu-items, $i);
+      @for $i from 1 through list.length($menu-items) {
+        $menuItem: list.nth($menu-items, $i);
         .link-#{$menuItem} {
           // loops through menu item array to set the active tab slider
           @include keyframesLeft(expandLeftItems#{$i}, $i - 1);
@@ -373,8 +373,8 @@ body {
       @media screen and (max-width: 499px) {
         display: none;
       }
-      @for $i from 1 through length($main-stack) {
-        $logo: nth($main-stack, $i);
+      @for $i from 1 through list.length($main-stack) {
+        $logo: list.nth($main-stack, $i);
         $orbitAngle: ($i - 1) * 0deg;
         $seconds: 10 - math.div($i, 3) + $i * 1s;
 
@@ -582,8 +582,8 @@ body {
       h2 {
         font-size: 2em;
       }
-      @for $i from 1 through length($other-tech) {
-        $logo: nth($other-tech, $i);
+      @for $i from 1 through list.length($other-tech) {
+        $logo: list.nth($other-tech, $i);
 
         $randomNumber-x: 15s - (math.div($i, 1.3) + math.div($i, 3));
         $randomNumber-y: math.div($i, 1.3) + math.div($i, 3) + 3s;

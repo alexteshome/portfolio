@@ -1,7 +1,6 @@
 import { FC, FormEvent, useState } from 'react'
 import { Button, TextField, CircularProgress } from '@mui/material'
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
-import 'isomorphic-fetch'
 import styles from './contact.module.scss'
 import { Fade } from 'react-awesome-reveal'
 

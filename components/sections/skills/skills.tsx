@@ -2,7 +2,6 @@ import { Paper, Divider } from '@mui/material'
 import { FaNetworkWired, FaLaptopCode } from 'react-icons/fa'
 import { Fade } from 'react-awesome-reveal'
 import { FC } from 'react'
-import Image from 'next/image'
 
 const mainStack = [
   'typescript',
@@ -46,7 +45,6 @@ export const Skills: FC = () => {
               className="skills-divider-horizontal"
               orientation="horizontal"
             />
-
             <div className="skills-section">
               <Fade triggerOnce>
                 <FaNetworkWired className="title-icon" />
@@ -76,11 +74,7 @@ export const Skills: FC = () => {
                   <div className="orbit" id={`${logo}`}>
                     <div className="pos">
                       <div className="skill-logo">
-                        <Image
-                          src={`/logos/${logo}.svg`}
-                          alt={logo}
-                          fill={true}
-                        />
+                        <img src={`/logos/${logo}.svg`} alt={logo} />
                       </div>
                     </div>
                   </div>
