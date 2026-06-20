@@ -6,7 +6,7 @@ import { Skills } from '../components/sections/skills'
 import { Portfolio } from '../components/sections/portfolio'
 import { Contact } from '../components/sections/contact'
 import { objectKeys } from 'ts-extras'
-import { MenuItem } from '../types.dt'
+import { MenuItem, Section } from '../types.dt'
 
 const menuItems = {
   about: About,
@@ -17,7 +17,7 @@ const menuItems = {
 
 interface SectionObserverProps {
   name: MenuItem
-  onVisChange: (isVisible: boolean, tab: string) => void
+  onVisChange: (isVisible: boolean, tab: Section) => void
   children: ReactNode
 }
 
@@ -39,9 +39,9 @@ const SectionObserver: FC<SectionObserverProps> = ({
 }
 
 const App = () => {
-  const [currentSection, setSection] = useState('home')
+  const [currentSection, setSection] = useState<Section>('home')
 
-  const onChange = (isVisible: boolean, tab: string): void => {
+  const onChange = (isVisible: boolean, tab: Section): void => {
     if (isVisible) {
       setSection(tab)
     }

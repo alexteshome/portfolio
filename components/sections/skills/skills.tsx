@@ -1,17 +1,16 @@
 import { Paper, Divider } from '@mui/material'
 import { FaNetworkWired, FaLaptopCode } from 'react-icons/fa'
 import { Fade } from 'react-awesome-reveal'
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
+import { mainStack, skillCategories } from '../../../content/skills'
+import { SkillCategory } from '../../../types.dt'
 
-const mainStack = [
-  'typescript',
-  'react',
-  'sass',
-  'nodejs',
-  'mysql',
-  'python',
-  'aws',
-] as const
+const categoryIcon = (icon: SkillCategory['icon']) =>
+  icon === 'frontend' ? (
+    <FaLaptopCode className="title-icon" />
+  ) : (
+    <FaNetworkWired className="title-icon" />
+  )
 
 export const Skills: FC = () => {
   return (
@@ -19,46 +18,33 @@ export const Skills: FC = () => {
       <div className="slide-content">
         <Paper className={`skills-table skills-table-other`} elevation={5}>
           <div className="skills-details">
-            <div className="skills-section">
-              <Fade triggerOnce>
-                <FaLaptopCode className="title-icon" />
-                <h3>Front End</h3>
-                <p>
-                  I like to design and showcase my creative vision while
-                  optimizing user experience, with the benefit of instant
-                  feedback
-                </p>
-                <h4>Languages</h4>
-                <p>JavaScript, Typescript, HTML5, CSS3/SASS/SCSS</p>
-                <h4>Frameworks / Libraries / Tools</h4>
-                <p>
-                  React, Next, Gatsby, Redux, Bootstrap, Material-UI,
-                  Semantic-UI
-                </p>
-              </Fade>
-            </div>
-            <Divider
-              className="skills-divider-vertical"
-              orientation="vertical"
-            />
-            <Divider
-              className="skills-divider-horizontal"
-              orientation="horizontal"
-            />
-            <div className="skills-section">
-              <Fade triggerOnce>
-                <FaNetworkWired className="title-icon" />
-                <h3>Back End</h3>
-                <p>
-                  I enjoy finding new and interesting problems to solve while
-                  designing flexible and secure APIs / database models
-                </p>
-                <h4>Languages</h4>
-                <p>JavaScript, TypeScript, Python, Java, C#, Bash, Perl, SQL</p>
-                <h4>Frameworks / Libraries / Tools</h4>
-                <p>Node, Django, Flask, MongoDB, AWS, GCP, Azure</p>
-              </Fade>
-            </div>
+            {skillCategories.map((cat, i) => (
+              <Fragment key={cat.title}>
+                {i > 0 && (
+                  <>
+                    <Divider
+                      className="skills-divider-vertical"
+                      orientation="vertical"
+                    />
+                    <Divider
+                      className="skills-divider-horizontal"
+                      orientation="horizontal"
+                    />
+                  </>
+                )}
+                <div className="skills-section">
+                  <Fade triggerOnce>
+                    {categoryIcon(cat.icon)}
+                    <h3>{cat.title}</h3>
+                    <p>{cat.blurb}</p>
+                    <h4>Languages</h4>
+                    <p>{cat.languages}</p>
+                    <h4>Frameworks / Libraries / Tools</h4>
+                    <p>{cat.tools}</p>
+                  </Fade>
+                </div>
+              </Fragment>
+            ))}
           </div>
         </Paper>
         <Paper className={`skills-table skills-table-main`} elevation={0}>
