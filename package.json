@@ -13,6 +13,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "packageManager": "pnpm@11.8.0",
   "engines": {
     "node": ">=22"
   },
