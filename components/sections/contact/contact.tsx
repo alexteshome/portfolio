@@ -1,7 +1,6 @@
 import { FC, FormEvent, useState } from 'react'
 import { Button, TextField, CircularProgress } from '@mui/material'
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
-import 'isomorphic-fetch'
 import styles from './contact.module.scss'
 import { Fade } from 'react-awesome-reveal'
 
@@ -20,25 +19,27 @@ export const Contact: FC = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    fetch('/api/contact', {
+    fetch('https://api.web3forms.com/submit', {
       method: 'post',
       headers: {
-        Accept: 'application/json, text/plain, */*',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({
+        access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+        subject: `${name} messaged you through your contact form.`,
+        name,
+        email,
+        message,
+      }),
     })
       .then(async (response) => {
         const data = await response.json()
         if (data.success) {
-          if (typeof window !== `undefined`) {
-            resetForm()
-            alert('Message Sent.')
-          }
+          resetForm()
+          alert('Message Sent.')
         } else {
-          if (typeof window !== `undefined`) {
-            alert('Message failed to send.')
-          }
+          alert('Message failed to send.')
         }
         setLoading(false)
       })
@@ -86,6 +87,13 @@ export const Contact: FC = () => {
 
       <Fade triggerOnce>
         <form id="contact-form" onSubmit={handleSubmit}>
+          <input
+            type="checkbox"
+            name="botcheck"
+            style={{ display: 'none' }}
+            tabIndex={-1}
+            autoComplete="off"
+          />
           <TextField
             type="text"
             label="Name"
