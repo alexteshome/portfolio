@@ -33,6 +33,6 @@ export const skillCategories: SkillCategory[] = [
     blurb:
       'I build LLM-powered product features along with the eval harnesses and agent tooling that keep them reliable.',
     languages: 'Python, TypeScript',
-    tools: 'Claude API, LLM agent architecture, Evals & observability',
+    tools: 'Claude, LLM agent architecture, Evals & observability',
   },
 ]
