@@ -1,5 +1,4 @@
 import { useState, useEffect, FC, ReactNode } from 'react'
-import { Events } from 'react-scroll'
 import { useInView } from 'react-intersection-observer'
 import { Layout } from '../components/layout'
 import { About } from '../components/sections/about'
@@ -41,15 +40,6 @@ const SectionObserver: FC<SectionObserverProps> = ({
 
 const App = () => {
   const [currentSection, setSection] = useState('home')
-
-  useEffect(() => {
-    Events.scrollEvent.register('begin', () => {})
-    Events.scrollEvent.register('end', () => {})
-    return () => {
-      Events.scrollEvent.remove('begin')
-      Events.scrollEvent.remove('end')
-    }
-  }, [])
 
   const onChange = (isVisible: boolean, tab: string): void => {
     if (isVisible) {
