@@ -59,7 +59,7 @@ export interface LayoutProps {
 export const Layout: FC<LayoutProps> = (props) => {
   const [transition, setTranstion] = useState('bottom bottom-initial')
   const [isHome, setIsHome] = useState(true)
-  const { currentSection, menuItems, onVisChange } = props
+  const { menuItems, onVisChange } = props
   const hasMounted = useRef(false)
 
   const { ref: heroRef, inView: heroInView } = useInView({ threshold: 0 })
@@ -122,9 +122,6 @@ export const Layout: FC<LayoutProps> = (props) => {
                   <span className="tab-container">{icons[item]}</span>
                 </Link>
               ))}
-              <span
-                className={`hero-tab-slider hero-tab-slider-${currentSection}`}
-              ></span>
             </div>
           </div>
           {props.children}
