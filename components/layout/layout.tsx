@@ -14,7 +14,7 @@ import {
   FaRegFolderOpen,
   FaRegEnvelope,
 } from 'react-icons/fa'
-import { MenuItem } from '../../types.dt'
+import { MenuItem, Section } from '../../types.dt'
 
 const theme = createTheme({
   palette: {
@@ -40,7 +40,7 @@ const theme = createTheme({
 })
 
 const size = '2.5rem'
-const icons = {
+const icons: Record<string, JSX.Element> = {
   home: <FaHome size={size} />,
   about: <FaRegUser size={size} />,
   skills: <FaCode size={size} />,
@@ -49,10 +49,32 @@ const icons = {
   contact: <FaRegEnvelope size={size} />,
 }
 
+const NavTabs: FC<{ items: MenuItem[]; variant: 'browser' | 'mobile' }> = ({
+  items,
+  variant,
+}) => (
+  <>
+    {items.map((item) => (
+      <Link
+        activeClass="active-section"
+        key={variant === 'mobile' ? `${item}-mobile` : item}
+        className={`hero-tab link-${item} ${variant}`}
+        to={item}
+        spy={true}
+        smooth="easeInOutQuad"
+        duration={700}
+        {...(variant === 'mobile' ? { offset: -75 } : {})}
+      >
+        <span className="tab-container">{icons[item]}</span>
+      </Link>
+    ))}
+  </>
+)
+
 export interface LayoutProps {
-  currentSection: string
+  currentSection: Section
   menuItems: MenuItem[]
-  onVisChange: (isVisible: boolean, tab: string) => void
+  onVisChange: (isVisible: boolean, tab: Section) => void
   children: ReactNode
 }
 
@@ -95,33 +117,8 @@ export const Layout: FC<LayoutProps> = (props) => {
               >
                 <span>{icons.home}</span>
               </Link>
-              {menuItems.map((item) => (
-                <Link
-                  activeClass="active-section"
-                  key={item}
-                  className={`hero-tab link-${item} browser`}
-                  to={item}
-                  spy={true}
-                  smooth="easeInOutQuad"
-                  duration={700}
-                >
-                  <span className="tab-container">{icons[item]}</span>
-                </Link>
-              ))}
-              {menuItems.map((item) => (
-                <Link
-                  activeClass="active-section"
-                  key={item + '-mobile'}
-                  className={`hero-tab link-${item} mobile`}
-                  to={item}
-                  spy={true}
-                  smooth="easeInOutQuad"
-                  duration={700}
-                  offset={-75}
-                >
-                  <span className="tab-container">{icons[item]}</span>
-                </Link>
-              ))}
+              <NavTabs items={menuItems} variant="browser" />
+              <NavTabs items={menuItems} variant="mobile" />
             </div>
           </div>
           {props.children}

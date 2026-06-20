@@ -3,6 +3,7 @@ import { Button, TextField, CircularProgress } from '@mui/material'
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import styles from './contact.module.scss'
 import { Fade } from 'react-awesome-reveal'
+import { SectionHeader } from '../../common'
 
 export const Contact: FC = () => {
   const [name, changeName] = useState('')
@@ -51,12 +52,7 @@ export const Contact: FC = () => {
 
   return (
     <div className={`slide ${styles.slide}`} id="contact">
-      <div className="slide-header">
-        <Fade triggerOnce>
-          <h2>Let's Get In Touch</h2>
-        </Fade>
-        <div className="underline" />
-      </div>
+      <SectionHeader title="Let's Get In Touch" />
       <Fade triggerOnce>
         <div className={styles.socials}>
           <button
