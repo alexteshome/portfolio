@@ -16,7 +16,7 @@ export interface Project {
 }
 
 export interface SkillCategory {
-  icon: 'frontend' | 'backend'
+  icon: 'frontend' | 'backend' | 'ai'
   title: string
   blurb: string
   languages: string

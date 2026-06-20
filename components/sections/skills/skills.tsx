@@ -1,5 +1,5 @@
 import { Paper, Divider } from '@mui/material'
-import { FaNetworkWired, FaLaptopCode } from 'react-icons/fa'
+import { FaNetworkWired, FaLaptopCode, FaRobot } from 'react-icons/fa'
 import { Fade } from 'react-awesome-reveal'
 import { FC, Fragment } from 'react'
 import { mainStack, skillCategories } from '../../../content/skills'
@@ -8,8 +8,10 @@ import { SkillCategory } from '../../../types.dt'
 const categoryIcon = (icon: SkillCategory['icon']) =>
   icon === 'frontend' ? (
     <FaLaptopCode className="title-icon" />
-  ) : (
+  ) : icon === 'backend' ? (
     <FaNetworkWired className="title-icon" />
+  ) : (
+    <FaRobot className="title-icon" />
   )
 
 export const Skills: FC = () => {
@@ -39,7 +41,7 @@ export const Skills: FC = () => {
                     <p>{cat.blurb}</p>
                     <h4>Languages</h4>
                     <p>{cat.languages}</p>
-                    <h4>Frameworks / Libraries / Tools</h4>
+                    <h4>Tools & Frameworks</h4>
                     <p>{cat.tools}</p>
                   </Fade>
                 </div>
