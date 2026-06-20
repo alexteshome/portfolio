@@ -1,0 +1,12 @@
+{
+  "name": "Alex Teshome",
+  "short_name": "Alex Teshome",
+  "description": "Software engineer based in New York building growth, onboarding, and AI-powered product experiences.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e1420",
+  "theme_color": "#5898b1",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ]
+}

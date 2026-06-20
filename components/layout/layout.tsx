@@ -105,7 +105,7 @@ export const Layout: FC<LayoutProps> = (props) => {
           <div className="hero-tabs" id="home" ref={heroRef}>
             <div className="content">
               <h1 id="title">HI, I'M ALEX TESHOME</h1>
-              <h3>Full Stack Developer | React | Node</h3>
+              <h3>Software Engineer | React · TypeScript · GraphQL</h3>
             </div>
             <div className={`hero-tabs-container ${transition}`}>
               <Link

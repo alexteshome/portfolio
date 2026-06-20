@@ -6,7 +6,7 @@ export const projects: Project[] = [
     title: 'Chika Mba Consulting Inc (Freelance)',
     tech: 'React + Gatsby + Node',
     image: '/screenshots/cmbaconsulting.png',
-    alt: 'cmbaconsulting',
+    alt: 'Homepage of the Chika Mba Consulting marketing site',
     links: [{ type: 'live', url: 'https://cmbaconsulting.ca/' }],
   },
   {
@@ -14,21 +14,10 @@ export const projects: Project[] = [
     title: 'ATMDb - Popular Movies',
     tech: 'React + Redux + Semantic UI',
     image: '/screenshots/atmdb.png',
-    alt: 'atmdb',
+    alt: 'ATMDb app showing a grid of popular movie posters',
     links: [
       { type: 'live', url: 'https://alexteshome.github.io/ATMDb/' },
       { type: 'repo', url: 'https://github.com/alexteshome/ATMDb' },
-    ],
-  },
-  {
-    id: 'fantasyat',
-    title: 'FantasyAT - Fantasy Basketball Team Storage',
-    tech: 'React + Redux + Node + MongoDB',
-    image: '/screenshots/fantasyat.png',
-    alt: 'fantasyat',
-    links: [
-      { type: 'live', url: 'https://fantasyat.herokuapp.com/' },
-      { type: 'repo', url: 'https://github.com/alexteshome/FantasyBB' },
     ],
   },
 ]
