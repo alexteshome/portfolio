@@ -3,7 +3,6 @@ import styles from './portfolio.module.scss'
 import { Fade } from 'react-awesome-reveal'
 import { FC } from 'react'
 import { Card, CardContent, IconButton, Typography } from '@mui/material'
-import Image from 'next/image'
 
 export const Portfolio: FC = () => {
   return (
@@ -25,7 +24,7 @@ export const Portfolio: FC = () => {
             <div className={styles.cardGroup}>
               <Card className={styles.card}>
                 <div className={styles.cardContent} id="project1">
-                  <Image
+                  <img
                     className={styles.cardImage}
                     src="/screenshots/cmbaconsulting.png"
                     alt="cmbaconsulting"
@@ -37,7 +36,6 @@ export const Portfolio: FC = () => {
                       <h2 className={styles.cardTitle}>
                         Chika Mba Consulting Inc (Freelance)
                       </h2>
-                      {/* <p>Consulting website built with</p> */}
                       <Typography variant="body2" component="p">
                         React + Gatsby + Node
                       </Typography>
@@ -71,7 +69,7 @@ export const Portfolio: FC = () => {
             <div className={styles.cardGroup}>
               <Card className={styles.card}>
                 <div className={styles.cardContent} id="atmdb">
-                  <Image
+                  <img
                     className={styles.cardImage}
                     src="/screenshots/atmdb.png"
                     alt="atmdb"
@@ -83,7 +81,6 @@ export const Portfolio: FC = () => {
                       <h2 className={styles.cardTitle}>
                         ATMDb - Popular Movies
                       </h2>
-                      {/* <p>Consulting website built with</p> */}
                       <Typography variant="body2" component="p">
                         React + Redux + Semantic UI
                       </Typography>
@@ -142,12 +139,12 @@ export const Portfolio: FC = () => {
                 >
                   <FaGithub />
                 </IconButton>
-              </div>{' '}
+              </div>
             </div>
             <div className={styles.cardGroup}>
               <Card className={styles.card}>
-                <div className={styles.cardContent} id="atmdb">
-                  <Image
+                <div className={styles.cardContent} id="fantasyat">
+                  <img
                     className={styles.cardImage}
                     src="/screenshots/fantasyat.png"
                     alt="fantasyat"
@@ -159,7 +156,6 @@ export const Portfolio: FC = () => {
                       <h2 className={styles.cardTitle}>
                         FantasyAT - Fantasy Basketball Team Storage
                       </h2>
-                      {/* <p>Consulting website built with</p> */}
                       <Typography variant="body2" component="p">
                         React + Redux + Node + MongoDB
                       </Typography>
