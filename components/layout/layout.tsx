@@ -14,7 +14,6 @@ const navLabel: Record<string, string> = {
   home: 'home',
   about: 'about',
   skills: 'skills',
-  portfolio: 'work',
   contact: 'contact',
 }
 
@@ -45,7 +44,7 @@ export const Layout: FC<LayoutProps> = ({ menuItems, onVisChange, children }) =>
     <div className="min-h-screen bg-navy-950">
       {/* Fixed top nav */}
       <header className="fixed top-0 inset-x-0 z-50 border-b border-line bg-navy-950/80 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
           <Link
             to="home"
             spy={true}
@@ -79,7 +78,7 @@ export const Layout: FC<LayoutProps> = ({ menuItems, onVisChange, children }) =>
           }}
         />
 
-        <div className="relative max-w-4xl mx-auto px-6 pt-24 pb-16">
+        <div className="relative max-w-5xl mx-auto px-6 pt-24 pb-16">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-6">
             Software Engineer @ Gusto
           </p>
@@ -92,13 +91,13 @@ export const Layout: FC<LayoutProps> = ({ menuItems, onVisChange, children }) =>
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
-              to="portfolio"
+              to="about"
               spy={false}
               smooth="easeInOutQuad"
               duration={700}
               className="inline-flex items-center px-6 py-3 rounded-lg bg-accent text-accent-ink font-display font-semibold text-sm cursor-pointer transition-opacity hover:opacity-90"
             >
-              View work
+              About me
             </Link>
             <Link
               to="contact"

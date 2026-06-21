@@ -1,4 +1,4 @@
-export type MenuItem = 'about' | 'skills' | 'portfolio' | 'contact'
+export type MenuItem = 'about' | 'skills' | 'contact'
 export type Section = MenuItem | 'home'
 
 export interface ProjectLink {

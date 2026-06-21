@@ -53,9 +53,10 @@ export const Contact: FC = () => {
 
   return (
     <section id="contact" className="py-24 md:py-32 bg-navy-900/30">
-      <div className="max-w-3xl mx-auto px-6">
-        <SectionHeader index="04" title="Contact" />
+      <div className="max-w-5xl mx-auto px-6">
+        <SectionHeader index="03" title="Contact" />
         <Reveal>
+          <div className="max-w-2xl">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-ink mb-4">
             Let's work together
           </h2>
@@ -134,6 +135,7 @@ export const Contact: FC = () => {
               </p>
             )}
           </form>
+          </div>
         </Reveal>
       </div>
     </section>

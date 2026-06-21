@@ -3,7 +3,6 @@ import { useInView } from 'react-intersection-observer'
 import { Layout } from '../components/layout'
 import { About } from '../components/sections/about'
 import { Skills } from '../components/sections/skills'
-import { Portfolio } from '../components/sections/portfolio'
 import { Contact } from '../components/sections/contact'
 import { objectKeys } from 'ts-extras'
 import { MenuItem, Section } from '../types.dt'
@@ -11,7 +10,6 @@ import { MenuItem, Section } from '../types.dt'
 const menuItems = {
   about: About,
   skills: Skills,
-  portfolio: Portfolio,
   contact: Contact,
 } as Record<MenuItem, FC>
 

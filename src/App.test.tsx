@@ -12,11 +12,10 @@ vi.mock('react-scroll', () => ({
 }))
 
 describe('App scroll-spy wiring', () => {
-  it('renders all four section anchors', () => {
+  it('renders all three section anchors', () => {
     const { container } = render(<App />)
     expect(container.querySelector('#about')).not.toBeNull()
     expect(container.querySelector('#skills')).not.toBeNull()
-    expect(container.querySelector('#portfolio')).not.toBeNull()
     expect(container.querySelector('#contact')).not.toBeNull()
   })
 

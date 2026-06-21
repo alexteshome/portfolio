@@ -4,7 +4,7 @@ import { SectionHeader, Reveal } from '../../common'
 
 export const Skills: FC = () => (
   <section id="skills" className="py-24 md:py-32 bg-navy-900/30">
-    <div className="max-w-4xl mx-auto px-6">
+    <div className="max-w-5xl mx-auto px-6">
       <SectionHeader index="02" title="Skills" />
 
       {/* Category cards */}
