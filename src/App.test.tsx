@@ -5,10 +5,6 @@ vi.mock('react-intersection-observer', () => ({
   useInView: () => ({ ref: () => undefined, inView: true }),
 }))
 
-vi.mock('react-awesome-reveal', () => ({
-  Fade: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-}))
-
 vi.mock('react-scroll', () => ({
   Link: ({ children }: { children: React.ReactNode }) => <>{children}</>,
   scroller: { scrollTo: vi.fn() },

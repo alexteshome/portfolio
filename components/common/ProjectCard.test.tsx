@@ -2,10 +2,6 @@ import { render, screen } from '@testing-library/react'
 import { ProjectCard } from './ProjectCard'
 import { Project } from '../../types.dt'
 
-vi.mock('react-awesome-reveal', () => ({
-  Fade: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-}))
-
 const twoLinkProject: Project = {
   id: 'atmdb',
   title: 'ATMDb - Popular Movies',
@@ -40,7 +36,7 @@ describe('ProjectCard', () => {
     const liveLinks = screen.getAllByRole('link', {
       name: 'Open ATMDb - Popular Movies (live site)',
     })
-    expect(liveLinks.length).toBe(2) // inside + outside groups
+    expect(liveLinks.length).toBe(1)
     liveLinks.forEach((link) => {
       expect(link.getAttribute('href')).toBe(
         'https://alexteshome.github.io/ATMDb/'
@@ -55,7 +51,7 @@ describe('ProjectCard', () => {
     const repoLinks = screen.getAllByRole('link', {
       name: 'View ATMDb - Popular Movies source on GitHub',
     })
-    expect(repoLinks.length).toBe(2)
+    expect(repoLinks.length).toBe(1)
     repoLinks.forEach((link) => {
       expect(link.getAttribute('href')).toBe(
         'https://github.com/alexteshome/ATMDb'
@@ -63,10 +59,10 @@ describe('ProjectCard', () => {
     })
   })
 
-  it('renders both inside and outside link groups', () => {
+  it('renders exactly two links for a two-link project', () => {
     const { container } = render(<ProjectCard project={twoLinkProject} />)
     const links = container.querySelectorAll('a[href]')
-    expect(links.length).toBe(4) // 2 links × 2 groups
+    expect(links.length).toBe(2)
   })
 
   it('works for a project with a single live link', () => {
@@ -74,7 +70,7 @@ describe('ProjectCard', () => {
     const liveLinks = screen.getAllByRole('link', {
       name: 'Open Chika Mba Consulting Inc (Freelance) (live site)',
     })
-    expect(liveLinks.length).toBe(2)
+    expect(liveLinks.length).toBe(1)
     liveLinks.forEach((link) => {
       expect(link.getAttribute('href')).toBe('https://cmbaconsulting.ca/')
     })

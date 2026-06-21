@@ -1,20 +1,17 @@
 import { FC, ReactNode } from 'react'
-import { IconButton } from '@mui/material'
 
-export const ExternalLink: FC<{
-  href: string
-  label: string
-  children: ReactNode
-}> = ({ href, label, children }) => (
-  <IconButton
-    component="a"
+export const ExternalLink: FC<{ href: string; label: string; children: ReactNode }> = ({
+  href,
+  label,
+  children,
+}) => (
+  <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
     aria-label={label}
-    color="inherit"
-    size="large"
+    className="inline-flex items-center justify-center text-slate2 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none"
   >
     {children}
-  </IconButton>
+  </a>
 )

@@ -1,26 +1,20 @@
 import { FC } from 'react'
-import { Fade } from 'react-awesome-reveal'
-import styles from './portfolio.module.scss'
-import { SectionHeader, ProjectCard } from '../../common'
+import { SectionHeader, ProjectCard, Reveal } from '../../common'
 import { projects } from '../../../content/projects'
 import { portfolioIntro } from '../../../content/copy'
 
-export const Portfolio: FC = () => {
-  return (
-    <div className={`slide ${styles.slide}`} id="portfolio">
-      <SectionHeader title="My Work" />
-      <Fade triggerOnce>
-        <p>{portfolioIntro}</p>
-      </Fade>
-      <div className="slide-content">
-        <div className={styles.cardGrid}>
-          <Fade triggerOnce>
-            {projects.map((p) => (
-              <ProjectCard key={p.id} project={p} />
-            ))}
-          </Fade>
+export const Portfolio: FC = () => (
+  <section id="portfolio" className="py-24 md:py-32">
+    <div className="max-w-4xl mx-auto px-6">
+      <SectionHeader index="03" title="Selected work" />
+      <Reveal>
+        <p className="text-body mb-10">{portfolioIntro}</p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {projects.map((p) => (
+            <ProjectCard key={p.id} project={p} />
+          ))}
         </div>
-      </div>
+      </Reveal>
     </div>
-  )
-}
+  </section>
+)
