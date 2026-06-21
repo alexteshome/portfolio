@@ -1,4 +1,4 @@
-export type MenuItem = 'about' | 'skills' | 'portfolio' | 'contact'
+export type MenuItem = 'about' | 'skills' | 'contact'
 export type Section = MenuItem | 'home'
 
 export interface ProjectLink {
@@ -16,7 +16,6 @@ export interface Project {
 }
 
 export interface SkillCategory {
-  icon: 'frontend' | 'backend' | 'ai'
   title: string
   blurb: string
   languages: string

@@ -12,7 +12,6 @@ export const mainStack = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    icon: 'frontend',
     title: 'Front End',
     blurb:
       'I build accessible, performant interfaces and care about the details that make a product feel effortless to use.',
@@ -20,7 +19,6 @@ export const skillCategories: SkillCategory[] = [
     tools: 'React, GraphQL, REST APIs, Testing',
   },
   {
-    icon: 'backend',
     title: 'Back End',
     blurb:
       'I design APIs and data models that hold up under real-world scale, and I enjoy untangling gnarly legacy systems.',
@@ -28,7 +26,6 @@ export const skillCategories: SkillCategory[] = [
     tools: 'Ruby on Rails, PostgreSQL, GraphQL, REST APIs',
   },
   {
-    icon: 'ai',
     title: 'AI / LLM',
     blurb:
       'I build LLM-powered product features along with the eval harnesses and agent tooling that keep them reliable.',

@@ -2,8 +2,8 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Contact } from './contact'
 
-vi.mock('react-awesome-reveal', () => ({
-  Fade: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+vi.mock('react-intersection-observer', () => ({
+  useInView: () => ({ ref: () => undefined, inView: true }),
 }))
 
 function makeFetchResponse(body: object) {
@@ -20,11 +20,7 @@ async function fillAndSubmit() {
 }
 
 describe('Contact handleSubmit', () => {
-  let alertMock: ReturnType<typeof vi.fn>
-
   beforeEach(() => {
-    alertMock = vi.fn()
-    vi.stubGlobal('alert', alertMock)
     vi.stubGlobal('fetch', vi.fn())
   })
 
@@ -32,41 +28,37 @@ describe('Contact handleSubmit', () => {
     vi.unstubAllGlobals()
   })
 
-  it('success branch: alerts "Message Sent." and resets form fields', async () => {
+  it('success branch: shows "Message Sent." and resets form fields', async () => {
     vi.mocked(fetch).mockReturnValue(makeFetchResponse({ success: true }))
     render(<Contact />)
 
     await fillAndSubmit()
 
-    await waitFor(() => {
-      expect(alertMock).toHaveBeenCalledWith('Message Sent.')
-    })
+    expect(await screen.findByText('Message Sent.')).toBeTruthy()
     expect(screen.getByLabelText(/name/i)).toHaveValue('')
     expect(screen.getByLabelText(/email/i)).toHaveValue('')
     expect(screen.getByLabelText(/message/i)).toHaveValue('')
   })
 
-  it('server-fail branch: alerts failure message when success is false', async () => {
+  it('server-fail branch: shows failure message when success is false', async () => {
     vi.mocked(fetch).mockReturnValue(makeFetchResponse({ success: false }))
     render(<Contact />)
 
     await fillAndSubmit()
 
     await waitFor(() => {
-      expect(alertMock).toHaveBeenCalledWith('Message failed to send.')
+      expect(screen.findByText('Message failed to send.')).toBeTruthy()
     })
   })
 
-  it('network-catch branch: alerts failure message when fetch rejects', async () => {
+  it('network-catch branch: shows failure message when fetch rejects', async () => {
     vi.mocked(fetch).mockRejectedValue(new Error('Network error'))
     render(<Contact />)
 
     await fillAndSubmit()
 
     await waitFor(() => {
-      expect(alertMock).toHaveBeenCalledWith(
-        expect.stringContaining('Message failed to send')
-      )
+      expect(screen.findByText(/Message failed to send/)).toBeTruthy()
     })
   })
 })

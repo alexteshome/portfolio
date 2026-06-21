@@ -33,8 +33,7 @@
     ],
     "peerDependencyRules": {
       "allowedVersions": {
-        "react-scroll>react": "19",
-        "react-awesome-reveal>react": "19"
+        "react-scroll>react": "19"
       }
     }
   },
@@ -42,12 +41,10 @@
     "node": ">=22"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/material": "^7.0.0",
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/space-grotesk": "^5.2.10",
     "@vercel/analytics": "^1.5.0",
     "react": "^19.1.0",
-    "react-awesome-reveal": "^4.2.1",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
@@ -56,6 +53,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
+    "@tailwindcss/vite": "^4.3.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
@@ -71,7 +69,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "happy-dom": "^20.10.6",
     "prettier": "^3.5.3",
-    "sass": "^1.89.1",
+    "tailwindcss": "^4.3.1",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.1",
     "vite": "^6.3.5",
