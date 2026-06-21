@@ -56,7 +56,7 @@ export const Contact: FC = () => {
       <div className="max-w-5xl mx-auto px-6">
         <SectionHeader index="03" title="Contact" />
         <Reveal>
-          <div className="max-w-2xl">
+          <div className="max-w-2xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-ink mb-4">
             Let's work together
           </h2>

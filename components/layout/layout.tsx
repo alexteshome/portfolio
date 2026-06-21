@@ -17,21 +17,19 @@ const navLabel: Record<string, string> = {
   contact: 'contact',
 }
 
-const NavLink: FC<{ to: string; label: string }> = ({ to, label }) => (
+const NavLink: FC<{ to: string; label: string; isActive: boolean }> = ({ to, label, isActive }) => (
   <Link
-    activeClass="!text-accent"
     to={to}
-    spy={true}
     smooth="easeInOutQuad"
     duration={700}
     offset={-64}
-    className="font-mono text-xs text-muted uppercase tracking-widest cursor-pointer transition-colors hover:text-slate2"
+    className={`font-mono text-xs uppercase tracking-widest cursor-pointer transition-colors hover:text-slate2 ${isActive ? 'text-accent' : 'text-muted'}`}
   >
     {label}
   </Link>
 )
 
-export const Layout: FC<LayoutProps> = ({ menuItems, onVisChange, children }) => {
+export const Layout: FC<LayoutProps> = ({ menuItems, onVisChange, children, currentSection }) => {
   const { ref: heroRef, inView: heroInView } = useInView({ threshold: 0 })
 
   useEffect(() => {
@@ -56,7 +54,7 @@ export const Layout: FC<LayoutProps> = ({ menuItems, onVisChange, children }) =>
           </Link>
           <nav className="flex items-center gap-6">
             {allNavItems.map((item) => (
-              <NavLink key={item} to={item} label={navLabel[item] ?? item} />
+              <NavLink key={item} to={item} label={navLabel[item] ?? item} isActive={currentSection === item} />
             ))}
           </nav>
         </div>
