@@ -1,12 +1,10 @@
-import { useEffect, FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import { Link } from 'react-scroll'
-import { useInView } from 'react-intersection-observer'
 import { MenuItem, Section } from '../../types.dt'
 
 export interface LayoutProps {
   currentSection: Section
   menuItems: MenuItem[]
-  onVisChange: (isVisible: boolean, tab: Section) => void
   children: ReactNode
 }
 
@@ -29,13 +27,7 @@ const NavLink: FC<{ to: string; label: string; isActive: boolean }> = ({ to, lab
   </Link>
 )
 
-export const Layout: FC<LayoutProps> = ({ menuItems, onVisChange, children, currentSection }) => {
-  const { ref: heroRef, inView: heroInView } = useInView({ threshold: 0 })
-
-  useEffect(() => {
-    onVisChange(heroInView, 'home')
-  }, [heroInView, onVisChange])
-
+export const Layout: FC<LayoutProps> = ({ menuItems, children, currentSection }) => {
   const allNavItems: string[] = ['home', ...menuItems]
 
   return (
@@ -63,7 +55,6 @@ export const Layout: FC<LayoutProps> = ({ menuItems, onVisChange, children, curr
       {/* Hero section */}
       <section
         id="home"
-        ref={heroRef}
         className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[radial-gradient(120%_120%_at_82%_-10%,theme(colors.navy-850),theme(colors.navy-950)_58%)]"
       >
         {/* Faint grid overlay */}

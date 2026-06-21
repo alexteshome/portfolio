@@ -1,5 +1,4 @@
-import { useState, useEffect, FC, ReactNode } from 'react'
-import { useInView } from 'react-intersection-observer'
+import { useState, useEffect, FC } from 'react'
 import { Layout } from '../components/layout'
 import { About } from '../components/sections/about'
 import { Skills } from '../components/sections/skills'
@@ -13,53 +12,38 @@ const menuItems = {
   contact: Contact,
 } as Record<MenuItem, FC>
 
-interface SectionObserverProps {
-  name: MenuItem
-  onVisChange: (isVisible: boolean, tab: Section) => void
-  children: ReactNode
-}
-
-const SectionObserver: FC<SectionObserverProps> = ({
-  name,
-  onVisChange,
-  children,
-}) => {
-  const { ref, inView } = useInView({
-    threshold: 0,
-    rootMargin: '0px 0px -115px 0px',
-  })
-
-  useEffect(() => {
-    onVisChange(inView, name)
-  }, [inView, name, onVisChange])
-
-  return <div ref={ref}>{children}</div>
-}
+const HEADER_HEIGHT = 64
 
 const App = () => {
   const [currentSection, setSection] = useState<Section>('home')
 
-  const onChange = (isVisible: boolean, tab: Section): void => {
-    if (isVisible) {
-      setSection(tab)
+  useEffect(() => {
+    const sectionIds: Section[] = ['home', ...(objectKeys(menuItems) as MenuItem[])]
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY + HEADER_HEIGHT + 1
+      let active: Section = 'home'
+      for (const id of sectionIds) {
+        const el = document.getElementById(id)
+        if (el && el.offsetTop <= scrollY) {
+          active = id
+        }
+      }
+      setSection(active)
     }
-  }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <Layout
-      onVisChange={onChange}
-      menuItems={objectKeys(menuItems)}
-      currentSection={currentSection}
-    >
+    <Layout menuItems={objectKeys(menuItems)} currentSection={currentSection}>
       <main className="et-main">
         <div className="body-theme">
           {objectKeys(menuItems).map((item) => {
             const Section = menuItems[item]
-            return (
-              <SectionObserver key={item} name={item} onVisChange={onChange}>
-                <Section />
-              </SectionObserver>
-            )
+            return <Section key={item} />
           })}
         </div>
       </main>

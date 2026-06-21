@@ -19,11 +19,8 @@ describe('App scroll-spy wiring', () => {
     expect(container.querySelector('#contact')).not.toBeNull()
   })
 
-  it('SectionObserver fires onChange when inView is true', () => {
+  it('renders home anchor in the hero section', () => {
     const { container } = render(<App />)
-    // With useInView mocked to always return inView:true, each SectionObserver
-    // calls onChange — the last one wins, setting currentSection to 'contact'.
-    // We verify the app still renders all sections without crashing.
     expect(container.querySelector('#home')).not.toBeNull()
   })
 })
